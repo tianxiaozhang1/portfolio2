@@ -1,14 +1,14 @@
 import React from 'react'
 
-import Image from 'next/image';
-import { source_code_pro, roboto } from '../fonts'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import ProjectsSection from './components/ProjectsSection'
-import nowHome1 from '../images/now/home2.JPG'
-import NowProject from './projects/now'
-import NowProject2 from './projects/now2'
-import Now3 from './projects/now3'
+// import Image from 'next/image';
+// import { source_code_pro, roboto } from '../fonts'
+// import Header from './components/Header'
+// import Footer from './components/Footer'
+// import ProjectsSection from './components/ProjectsSection'
+// import nowHome1 from '../images/now/home2.JPG'
+// import NowProject from './projects/now'
+// import NowProject2 from './projects/now2'
+// import Now3 from './projects/now3'
 
 import Profile from './components/homepage/Profile'
 
@@ -23,17 +23,17 @@ import Minesweeper from './projects/Minesweeper'
 import Sudoku from './projects/Sudoku'
 
 import Pathfinder from './projects/Pathfinder'
-import Sorting from './projects/Sorting'
+// import Sorting from './projects/Sorting'
 import Sorting2 from './projects/Sorting2'
-import MSN from './projects/MSN'
+// import MSN from './projects/MSN'
 
 // import emailIcon from '../images/icons/emailicon.png';
 
-import pythonIcon from './components/logos/python'
-import GitHubLogo from './components/logos/github'
-import WebsiteLogo from './components/logos/website'
-import InstagramLogo from './components/logos/instagram'
-import EmailLogo from './components/logos/email'
+// import pythonIcon from './components/logos/python'
+// import GitHubLogo from './components/logos/github'
+// import WebsiteLogo from './components/logos/website'
+// import InstagramLogo from './components/logos/instagram'
+// import EmailLogo from './components/logos/email'
 
 const titleCSS = "w-92 h-18 md:w-190 md:h-22 lg:flex lg:w-26 lg:h-120 xl:w-316 xl:h-28 text-3xl lg:text-5xl font-semibold text-slate-500 mx-auto mt-3 md:mt-6 flex items-center text-center justify-center"
 
