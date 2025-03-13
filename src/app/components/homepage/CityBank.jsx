@@ -8,30 +8,24 @@ import { Aldrich, Cinzel } from 'next/font/google';
 const aldrich = Aldrich({ subsets: ['latin'], weight: "400" })
 const cinzel = Cinzel({ subsets: ['latin'] })
 
-import Phone from '../../components/Phone'
-import PhoneContent from '../../components/CityBank/PhoneContent'
-import BankWatch from '../../components/CityBank/BankWatch';
-import BankLaptop from '../../components/CityBank/BankLaptop';
-import BankPhone from '../../components/CityBank/BankPhone';
+// import Phone from '../../components/Phone'
+// import PhoneContent from '../../components/CityBank/PhoneContent'
+// import BankWatch from '../../components/CityBank/BankWatch';
+// import BankLaptop from '../../components/CityBank/BankLaptop';
+// import BankPhone from '../../components/CityBank/BankPhone';
 
-import appStoreLogo from '../../../images/citybank/appstore.svg'
-import googlePlayLogo from '../../../images/citybank/googleplay.svg'
+// import appStoreLogo from '../../../images/citybank/appstore.svg'
+// import googlePlayLogo from '../../../images/citybank/googleplay.svg'
 
 
-import card1 from '../../../images/citybank/card5a.png'
+// import card1 from '../../../images/citybank/card5a.png'
 // import googlePlayLogo from '../../../images/citybank/googleplay.svg'
 // import googlePlayLogo from '../../../images/citybank/googleplay.svg'
 // import googlePlayLogo from '../../../images/citybank/googleplay.svg'
 
 // import batteryIcon from '../../../images/citybank/battery-full-icon.svg'
 
-import Couch from '../CityBank/Couch'
-
-// import CreditCardOne from './components/CityBank/CreditCardOne'
-// import CreditCardOne from '../CityBank/CreditCardOne'
-// import CreditCardTwo from '../CityBank/CreditCardTwo'
-// import CreditCardThree from '../CityBank/CreditCardThree'
-// import CreditCardFour from '../CityBank/CreditCardFour'
+// import Couch from '../CityBank/Couch'
 
 import pixelMap from '../../../images/citybank/pixelmap2.png'
 
@@ -55,18 +49,15 @@ import store from '../../../images/citybank/emojis/store.png'
 
 import park from '../../../images/citybank/emojis/park.png'
 
-import porsche from '../../../images/citybank/logos/Porsche.png'
-import merc from '../../../images/citybank/logos/mercedes.png'
+// import porsche from '../../../images/citybank/logos/Porsche.png'
+// import merc from '../../../images/citybank/logos/mercedes.png'
 import CAA from '../../../images/citybank/logos/CAA.png'
 import Starbucks from '../../../images/citybank/logos/Starbucks.png'
 import Indigo from '../../../images/citybank/logos/Indigo.svg'
 import Shell from '../../../images/citybank/logos/Shell.png'
 
 import AirCanada from '../../../images/citybank/logos/AirCanada.png'
-import planeSvg from '../../../images/citybank/logos/plane.svg'
-import Audi from '../../../images/citybank/logos/Audi.svg'
-
-import AirMiles from '../../../images/citybank/logos/AirMiles.png'
+// import planeSvg from '../../../images/citybank/logos/plasles.png'
 import BurgerShack from '../../../images/citybank/logos/BurgerShack.png'
 
 // const textBow = "rounded-lg w-4 h-4 xl:w-8 xl:h-8 flex justify-center items-center text-sm xl:text-lg font-bold"
@@ -544,8 +535,7 @@ function CityBank() {
 
             {/* MEDIUM AND UP */}
             <div className='w-92 h-78 hidden md:flex md:w-190 md:h-132 lg:flex lg:w-252 lg:h-120 xl:w-316 xl:h-152
-                            items-center justify-center 
-                            '>
+                            items-center justify-center'>
                 <div className='w-full h-full justify-center items-center flex '>
 
                     <div className='hidden h-36 md:h-46 justify-center items-center text-center font-bold text-2xl md:text-4xl'>
