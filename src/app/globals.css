@@ -2,7 +2,199 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+@layer utilities {
+  .font-condensed {
+    font-stretch: condensed;
+  }
+}
+body {
+  color: #000;
+  background-color: #fff;
+}
+
+[data-theme="dark"] body {
+  background-color: #000;
+  color: #fff;
+}
+
+.home-box {
+    background-image: linear-gradient(
+      120deg,
+      hsl(213deg 99% 62%) 0%,
+      hsl(220deg 100% 66%) 7%,
+      hsl(228deg 100% 70%) 15%,
+      hsl(240deg 100% 75%) 23%,
+      hsl(254deg 100% 73%) 32%,
+      hsl(272deg 87% 68%) 40%,
+      hsl(298deg 60% 58%) 48%,
+      hsl(318deg 74% 58%) 55%,
+      hsl(330deg 81% 59%) 63%,
+      hsl(341deg 80% 59%) 70%,
+      hsl(350deg 80% 60%) 76%,
+      hsl(359deg 82% 62%) 83%,
+      hsl(9deg 82% 59%) 89%,
+      hsl(17deg 81% 55%) 94%,
+      hsl(26deg 78% 50%) 100%
+    );
+}
+
+.camera-gradient {
+  background-image: linear-gradient(
+  45deg,
+  hsl(201deg 81% 33%) 0%,
+  hsl(194deg 100% 32%) 14%,
+  hsl(186deg 100% 32%) 29%,
+  hsl(174deg 100% 32%) 43%,
+  hsl(156deg 72% 40%) 57%,
+  hsl(102deg 43% 54%) 71%,
+  hsl(65deg 52% 50%) 86%,
+  hsl(42deg 95% 61%) 100%
+);
+}
+
+.lens-gradient {
+  background-image: linear-gradient(
+  45deg,
+  hsl(51deg 80% 62%) 0%,
+  hsl(79deg 59% 63%) 14%,
+  hsl(126deg 52% 68%) 29%,
+  hsl(161deg 57% 59%) 43%,
+  hsl(178deg 53% 55%) 57%,
+  hsl(190deg 52% 60%) 71%,
+  hsl(201deg 40% 64%) 86%,
+  hsl(215deg 20% 65%) 100%
+);
+}
+
+.momenta-gradient1 {
+  background-image: linear-gradient(
+    45deg,
+    hsl(240deg 100% 20%) 0%,
+    hsl(298deg 100% 21%) 14%,
+    hsl(324deg 100% 32%) 29%,
+    hsl(336deg 100% 42%) 43%,
+    hsl(0deg 93% 61%) 57%,
+    hsl(24deg 100% 57%) 71%,
+    hsl(42deg 100% 50%) 86%,
+    hsl(55deg 100% 50%) 100%
+  );
+}
+
+.momenta-gradient2 {
+  background-image: linear-gradient(
+    45deg,
+    hsl(274deg 93% 66%) 0%,
+    hsl(263deg 93% 70%) 14%,
+    hsl(252deg 90% 72%) 29%,
+    hsl(242deg 82% 73%) 43%,
+    hsl(214deg 93% 64%) 57%,
+    hsl(197deg 100% 48%) 71%,
+    hsl(187deg 100% 42%) 86%,
+    hsl(171deg 55% 55%) 100%
+  );
+}
+
+.momenta-gradient3 {
+  background-image: linear-gradient(
+    45deg,
+    hsl(11deg 80% 72%) 0%,
+    hsl(358deg 88% 76%) 14%,
+    hsl(344deg 88% 74%) 29%,
+    hsl(329deg 78% 71%) 43%,
+    hsl(310deg 57% 69%) 57%,
+    hsl(283deg 54% 70%) 71%,
+    hsl(258deg 61% 74%) 86%,
+    hsl(233deg 65% 74%) 100%
+  );
+}
+
+.smart-pay-gradient {
+  background-image: linear-gradient(
+  45deg,
+  hsl(201deg 79% 39%) 0%,
+  hsl(200deg 100% 32%) 14%,
+  hsl(202deg 100% 28%) 29%,
+  hsl(205deg 100% 24%) 43%,
+  hsl(208deg 100% 21%) 57%,
+  hsl(212deg 100% 17%) 71%,
+  hsl(216deg 100% 14%) 86%,
+  hsl(0deg 0% 0%) 100%
+);
+}
+
+.banking-gradient {
+  background-image: linear-gradient(
+  90deg,
+  hsl(11deg 79% 46%) 0%,
+  hsl(3deg 67% 49%) 14%,
+  hsl(356deg 63% 49%) 29%,
+  hsl(351deg 64% 48%) 43%,
+  hsl(347deg 63% 47%) 57%,
+  hsl(343deg 60% 46%) 71%,
+  hsl(339deg 55% 45%) 86%,
+  hsl(335deg 50% 44%) 100%
+);
+}
+
+.mortgage-gradient {
+  background-image: linear-gradient(
+  90deg,
+  hsl(210deg 55% 44%) 0%,
+  hsl(217deg 43% 48%) 14%,
+  hsl(227deg 37% 52%) 29%,
+  hsl(241deg 32% 55%) 43%,
+  hsl(258deg 32% 54%) 57%,
+  hsl(274deg 31% 52%) 71%,
+  hsl(290deg 29% 50%) 86%,
+  hsl(307deg 32% 49%) 100%
+);
+}
+
+.insurance-gradient {
+  background-image: linear-gradient(
+  90deg,
+  hsl(336deg 45% 48%) 0%,
+  hsl(333deg 47% 46%) 11%,
+  hsl(331deg 49% 44%) 22%,
+  hsl(328deg 52% 43%) 33%,
+  hsl(326deg 54% 41%) 44%,
+  hsl(323deg 57% 39%) 56%,
+  hsl(321deg 60% 37%) 67%,
+  hsl(318deg 63% 36%) 78%,
+  hsl(315deg 67% 34%) 89%,
+  hsl(312deg 70% 32%) 100%
+);
+}
+
+.investment-gradient {
+  background-image: linear-gradient(
+  90deg,
+  hsl(114deg 30% 40%) 0%,
+  hsl(137deg 35% 39%) 14%,
+  hsl(152deg 46% 37%) 29%,
+  hsl(163deg 59% 34%) 43%,
+  hsl(171deg 76% 31%) 57%,
+  hsl(177deg 99% 27%) 71%,
+  hsl(181deg 100% 28%) 86%,
+  hsl(185deg 81% 33%) 100%
+);
+}
+
+.newaccount-gradient {
+  background-image: linear-gradient(
+  90deg,
+  hsl(187deg 34% 52%) 0%,
+  hsl(190deg 38% 51%) 14%,
+  hsl(192deg 41% 51%) 29%,
+  hsl(194deg 44% 51%) 43%,
+  hsl(196deg 47% 51%) 57%,
+  hsl(198deg 49% 51%) 71%,
+  hsl(201deg 50% 52%) 86%,
+  hsl(203deg 51% 53%) 100%
+);
+}
+
+/* :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
@@ -30,4 +222,4 @@ body {
   .text-balance {
     text-wrap: balance;
   }
-}
+} */
