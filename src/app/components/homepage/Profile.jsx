@@ -3,7 +3,6 @@ import React from 'react'
 import Link from 'next/link'
 
 import mainBG from '../../../images/now/homex2b.jpg'
-
 import fireflies from '../../../images/fireflies.jpg'
 
 const languageBoxSmall = "h-16 w-16 lg:h-26 lg:w-26 font-semibold text-sm lg:text-xl flex items-center justify-center rounded-xl lg:rounded-3xl shadow-md cursor-default"
@@ -12,14 +11,11 @@ const winPhoneStyle = "h-28 lg:h-full flex justify-center items-center text-2xl 
 import { Aldrich, Cinzel, Roboto, Noto_Sans_Ogham, Open_Sans, Inconsolata, Source_Sans_3, Source_Code_Pro } from 'next/font/google';
 const aldrich = Aldrich({ subsets: ['latin'], weight: "400" })
 const cinzel = Cinzel({ subsets: ['latin'] })
-
 const roboto = Roboto({ subsets: ['latin'], weight: '700' })
 const notoSans = Noto_Sans_Ogham({ subsets: ['latin'], weight: '400' })
 const openSans = Open_Sans({ subsets: ['latin'], weight: '600' })
-
 const inconsolata = Inconsolata({ subsets: ['latin'], weight: '700' })
 const sourceSans3 = Source_Sans_3({ subsets: ['latin'], weight: "400" })
-
 const sourceCodePro = Source_Code_Pro({ subsets: ['latin'], weight: "400" })
 
 const leftCol = "border-2 border-[#333333] hover:border-stone-600"
@@ -349,7 +345,7 @@ function Profile() {
                                 })}
                             </div>
                             <div className=''>
-                                <div className='text-[#659849] mt-0'>//HELLO WORLD</div>
+                                <div className='text-[#659849] mt-0'>&#47;&#47;&nbsp;HELLO WORLD</div>
                                 <div className='text-sky-200 flex'>name: Tian<div className='text-stone-200'>&#x2c;</div></div>
 
                                 <div className='text-sky-200 flex'>languages: <div className='text-yellow-200 ml-0'>&nbsp; &#123;</div></div>
