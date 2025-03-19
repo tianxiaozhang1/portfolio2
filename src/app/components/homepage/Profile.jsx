@@ -748,7 +748,7 @@ function Profile() {
                     </div>
                     
                     <div className='flex w-full h-150'>
-                        {/* LEFT ICONS */}
+
                         <div className='w-20 h-full bg-[#333333] flex justify-center'>
                             <div className='mt-2'>
                                 <UserCodeIcon/>
@@ -778,7 +778,6 @@ function Profile() {
                             </div>
                         </div>
 
-                        {/* RIGHT */}
                         <div className={`bg-[#1e1e1e] h-full w-full flex overflow-hidden cursor-default ${sourceCodePro.className}`}>
                             <div className={`w-8 h-full text-end pr-2 pt-0 text-stone-500 ${sourceCodePro.className}`}>
                                 {numberList.map((number, i) => {
