@@ -2,23 +2,17 @@
 import React from 'react'
 import Link from 'next/link'
 
-import { useRouter } from "next/navigation";
-import { useState } from "react";
-
-import {decode} from 'html-entities';
-
-import Header from '../Header'
+// import { useRouter } from "next/navigation";
+// import { useState } from "react";
+// import Header from '../Header'
 
 import mainBG from '../../../images/now/homex2b.jpg'
 
 import fireflies from '../../../images/fireflies.jpg'
 
-const languageBox = "h-36 w-36 font-semibold text-3xl flex items-center justify-center rounded-3xl shadow-md cursor-default"
+// const languageBox = "h-36 w-36 font-semibold text-3xl flex items-center justify-center rounded-3xl shadow-md cursor-default"
 const languageBoxSmall = "h-16 w-16 lg:h-26 lg:w-26 font-semibold text-sm lg:text-xl flex items-center justify-center rounded-xl lg:rounded-3xl shadow-md cursor-default"
 const winPhoneStyle = "h-28 lg:h-full flex justify-center items-center text-2xl lg:text-4xl cursor-default"
-
-// const languageBoxSmall2 = "h-26 w-26 font-semibold text-sm lg:text-xl flex items-center justify-center rounded-3xl shadow-md cursor-default border-4"
-// shadow-[6px_6px_6px_rgba(188,188,188,0.5)]
 
 import { Aldrich, Cinzel, Roboto, Noto_Sans_Ogham, Open_Sans, Inconsolata, Source_Sans_3, Source_Code_Pro } from 'next/font/google';
 const aldrich = Aldrich({ subsets: ['latin'], weight: "400" })
@@ -862,7 +856,6 @@ function Profile() {
 
                 </div>
                 <div className='h-6 w-full bg-[#2d7acb] flex items-center justify-between'>
-                    {/* LEFT */}
                     <div className='flex'>
                         <div className='bg-[#2f815c] hover:bg-[#428e8b] px-2 h-6 flex items-center cursor-pointer'>
                             <RemoteIcon/>
@@ -883,7 +876,6 @@ function Profile() {
                         </div>
                     </div>
 
-                    {/* RIGHT */}
                     <div className='pr-1 flex'>
                         <div className='hidden h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
                             <div className='text-white text-xxs ml-0.5 '>Ln 25, Col 1</div>
