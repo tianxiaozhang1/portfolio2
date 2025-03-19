@@ -28,7 +28,6 @@ import Sorting2 from './projects/Sorting2'
 // import MSN from './projects/MSN'
 
 // import emailIcon from '../images/icons/emailicon.png';
-
 // import pythonIcon from './components/logos/python'
 // import GitHubLogo from './components/logos/github'
 // import WebsiteLogo from './components/logos/website'
@@ -45,7 +44,7 @@ export default function Home() {
 
                 {/* <div className=' h-16 bg-slate-200 w-full grid grid-cols-1 gap-6'></div> */}
 
-                <div className='flex justify-center mt-3 md:mt-6'><Profile/></div>
+                <div className='flex justify-center mt-0 md:mt-0'><Profile/></div>
 
                 <div className={`${titleCSS}`}>Projects</div>
 
