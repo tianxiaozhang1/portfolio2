@@ -426,7 +426,7 @@ function Profile() {
 
     return (
         <div className='w-full lg:h-screen flex justify-center items-center bg-gradient-to-br from-[#d7eaf7] to-[#f9f9f9]'>
-            {/*  */}
+
             <div className='hidden w-92 h-78 md:w-190 md:h-132 lg:w-252 lg:h-120 xl:w-316 xl:h-152 rounded-3xl overflow-hidden home-box p-1.5 justify-center items-center shadow-md' >
                 <div className='w-full h-full p-6 bg-white rounded-2xl inset-shadow-sm inset-shadow-indigo-500 flex justify-center items-center'>
                     <div className=' text-rouLan'>
@@ -458,8 +458,6 @@ function Profile() {
                     </div>
                 </div>
             </div>
-
-
             <div className='hidden w-92 h-78 md:w-190 md:h-132 lg:w-252 lg:h-120 xl:w-316 xl:h-152 overflow-hidden bg-gradient-to-b from-slate-900 to-slate-700 justify-center items-center space-y-2 p-2 pb-6'>
                 <div className=' h-1/3 w-full flex space-x-2'>
                     <div className='w-1/6 h-full bg-rouLan text-slate-200'>
@@ -570,8 +568,6 @@ function Profile() {
                     </div>
                 </div>
             </div>
-
-            {/* DESKTOP */}
             <div className='hidden lg:w-252 lg:h-120 xl:w-316 xl:h-152 overflow-hidden bg-gradient-to-b from-slate-100 to-slate-100  grid-cols-1 gap-1 p-2 pb-6'>
                 <div className='h-full w-full grid grid-cols-3 lg:grid-cols-6 gap-1'>
                     <div className='h-28 lg:h-full bg-rouLan text-slate-200'>
@@ -701,9 +697,7 @@ function Profile() {
                     </div> */}
                 </div>
             </div>
-
-            {/* DELETE */}
-            <div className='w-full md:w-190 md:h-132 bg-white hidden' style={{
+            <div className='hidden w-full md:w-190 md:h-132 bg-white ' style={{
                             background: `url(${fireflies.src})`,
                             backgroundSize: 'cover',
                             backgroundPosition: 'center',
@@ -740,7 +734,6 @@ function Profile() {
                 </div>
             </div>
 
-            {/* MOBILE */}
             <div className='w-full md:w-100'>
                 <div className={`w-full h-158 md:w-100 bg-red-800`}>
                     <div className='h-8 w-full bg-[#3c3c3c] text-sm cursor-default text-stone-200 flex items-center justify-center'>
@@ -864,7 +857,6 @@ function Profile() {
                             
                         </div>
 
-                        {/* FAR RIGHT */}
                         <div className='w-1.5 h-full bg-[#285970]'></div>
                     </div>
 
