@@ -34,6 +34,9 @@ import Sorting2 from './projects/Sorting2'
 // import InstagramLogo from './components/logos/instagram'
 // import EmailLogo from './components/logos/email'
 
+import { Oswald } from 'next/font/google';
+const oswald = Oswald({ subsets: ['latin'], weight: "400" })
+
 const titleCSS = "w-92 h-18 md:w-190 md:h-22 lg:flex lg:w-26 lg:h-120 xl:w-316 xl:h-28 text-3xl lg:text-5xl font-semibold text-slate-500 mx-auto mt-3 md:mt-6 flex items-center text-center justify-center"
 
 // import "@fontsource/cascadia-code"

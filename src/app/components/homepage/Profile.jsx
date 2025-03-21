@@ -288,6 +288,15 @@ const GithubIcon = () => {
         </div>
     )
 }
+
+const ArrowIcon = () => {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#a8a29e" className="size-10">
+            <path fillRule="evenodd" d="M11.47 13.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 0 0-1.06-1.06L12 11.69 5.03 4.72a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clipRule="evenodd" />
+            <path fillRule="evenodd" d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clipRule="evenodd" />
+        </svg>
+    )
+}
  
 const numberList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30]
 
@@ -298,172 +307,178 @@ function Profile() {
     }
 
     return (
-        <div className='w-full lg:h-screen flex justify-center items-center bg-gradient-to-br from-[#d7eaf7] to-[#f9f9f9]'>
-            <div className='w-full md:w-100'>
-                <div className={`w-full h-158 md:w-100 bg-red-800`}>
-                    <div className='h-8 w-full bg-[#3c3c3c] text-sm cursor-default text-stone-200 flex items-center justify-center'>
-                        Tianxiao Zhang - Full Stack Developer
-                    </div>
-                    
-                    <div className='flex w-full h-150'>
+        <div className='w-full md:h-screen flex justify-center items-center bg-gradient-to-br from-[#d7eaf7] to-[#f9f9f9]'>
+            <div className=''>
+                <div className='md:w-100'>
+                    <div className={`w-full h-158 md:w-100 `}>
+                        <div className='h-8 w-full bg-[#3c3c3c] text-sm cursor-default text-stone-200 flex items-center justify-center'>
+                            Tianxiao Zhang - Full Stack Developer
+                        </div>
+                        
+                        <div className='flex w-full h-150'>
 
-                        <div className='w-20 h-full bg-[#333333] flex justify-center'>
-                            <div className='mt-2'>
-                                <UserCodeIcon/>
-                                <div className={`${leftCol}`}>
-                                    <Link target="_blank" href="mailto:tianxiaozhang@gmail.com" rel="noopener noreferrer">
-                                        <MailCodeIcon/>
-                                    </Link>
+                            <div className='w-20 h-full bg-[#333333] flex justify-center'>
+                                <div className='mt-2'>
+                                    <UserCodeIcon/>
+                                    <div className={`${leftCol}`}>
+                                        <Link target="_blank" href="mailto:tianxiaozhang@gmail.com" rel="noopener noreferrer">
+                                            <MailCodeIcon/>
+                                        </Link>
+                                    </div>
+                                    <div className={`${leftCol}`}>
+                                        <Link target="_blank" href="https://www.instagram.com/tianxiaozhang" rel="noopener noreferrer">
+                                            <IGCodeIcon/>
+                                        </Link>
+                                    </div>
+                                    <div className={`${leftCol}`}>
+                                        <Link target="_blank" href="https://tianphoto.ca" rel="noopener noreferrer">
+                                            <WebsiteCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
+                                        </Link>
+                                    </div>
+                                    <div onClick={copyNumber} className={`flex justify-center cursor-pointer ${leftCol}`}>
+                                        <PhoneCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
+                                    </div>
+                                    <div className={`${leftCol}`}>
+                                        <Link target="_blank" href="https://github.com/tianxiaozhang1/" rel="noopener noreferrer">
+                                            <GithubCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
+                                        </Link>
+                                    </div>
                                 </div>
-                                <div className={`${leftCol}`}>
-                                    <Link target="_blank" href="https://www.instagram.com/tianxiaozhang" rel="noopener noreferrer">
-                                        <IGCodeIcon/>
-                                    </Link>
+                            </div>
+
+                            <div className={`bg-[#1e1e1e] h-full w-full flex overflow-hidden cursor-default ${sourceCodePro.className}`}>
+                                <div className={`w-8 h-full text-end pr-2 pt-0 text-stone-500 ${sourceCodePro.className}`}>
+                                    {numberList.map((number, i) => {
+                                        return (
+                                            <div key={i} className='leading-6'>{number}</div>
+                                        )
+                                    })}
                                 </div>
-                                <div className={`${leftCol}`}>
-                                    <Link target="_blank" href="https://tianphoto.ca" rel="noopener noreferrer">
-                                        <WebsiteCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
-                                    </Link>
+                                <div className=''>
+                                    <div className='text-[#659849] mt-0'>&#47;&#47;&nbsp;HELLO WORLD</div>
+                                    <div className='text-sky-200 flex'>name: Tian<div className='text-stone-200'>&#x2c;</div></div>
+
+                                    <div className='text-sky-200 flex'>languages: <div className='text-yellow-200 ml-0'>&nbsp; &#123;</div></div>
+                                    <div className='flex h-18'>
+                                        <div className='w-1 h-12'></div>
+                                        <div className='w-26 mr-4 space-x-8 flex pt-1'>
+                                            <div className='w-0.25 h-22 bg-stone-600'></div>
+                                            <div className='w-0.25 h-22 bg-stone-600'></div>
+                                            <div className='w-0.25 h-22 bg-stone-600'></div>
+                                            <div className='w-0.25 h-22 bg-stone-600'></div>
+                                        </div>
+                                        <div className='text-sky-200'>
+                                            <div className='ml-2 flex'>python<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2 flex'>javascript<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2'>typescript</div>
+                                        </div>
+                                    </div>
+                                    <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
+
+                                    <div className='text-sky-200 flex -mt-0.25'>frameworks: <div className='text-yellow-200 pl-0.5 ml-2'>&#123;</div></div>
+                                    <div className='flex h-30'>
+                                        <div className='w-1 h-24'></div>
+                                        <div className='w-26 mr-4 space-x-8 flex pt-1.5'>
+                                            <div className='w-0.25 h-34 bg-stone-600'></div>
+                                            <div className='w-0.25 h-34 bg-stone-600'></div>
+                                            <div className='w-0.25 h-34 bg-stone-600'></div>
+                                            <div className='w-0.25 h-34 bg-stone-600'></div>
+                                        </div>
+                                        <div className='text-sky-200'>
+                                            <div className='ml-2 flex'>django<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2 flex'>react<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2 flex'>next.js<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2 text-sky-500 flex'>vue<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2 text-sky-500'>angular</div>
+                                        </div>
+                                    </div>
+                                    <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
+
+                                    <div className='text-sky-200 flex'>database: <div className='text-yellow-200 ml-2 pl-0.5'>&nbsp; &#123;</div></div>
+                                    <div className='flex h-12'>
+                                        <div className='w-1 h-12'></div>
+                                        <div className='w-26 mr-4 space-x-8 flex pt-1'>
+                                            <div className='w-0.25 h-16 bg-stone-600'></div>
+                                            <div className='w-0.25 h-16 bg-stone-600'></div>
+                                            <div className='w-0.25 h-16 bg-stone-600'></div>
+                                            <div className='w-0.25 h-16 bg-stone-600'></div>
+                                        </div>
+                                        <div className='text-sky-200'>
+                                            <div className='ml-2 flex'>MySQL<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='ml-2'>MongoDB</div>
+                                        </div>
+                                    </div>
+                                    <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
+
+                                    <div className='text-sky-200 flex '>other_skills:<div className='text-yellow-200 ml-1.5'>&#123;</div></div>
+                                    <div className='flex h-30'>
+                                        <div className='w-1 h-24'></div>
+                                        <div className='w-29 mr-2 space-x-8 flex pt-1.5'>
+                                            <div className='w-0.25 h-33 bg-stone-600'></div>
+                                            <div className='w-0.25 h-33 bg-stone-600'></div>
+                                            <div className='w-0.25 h-33 bg-stone-600'></div>
+                                            <div className='w-0.25 h-33 bg-stone-600'></div>
+                                        </div>
+                                        <div className='text-sky-200 pl-0.5'>
+                                            <div className='flex'>TailwindCSS<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='flex -mt-0.5'>css<div className='text-stone-200'>&#x2c;&nbsp;</div>html<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='flex'>RESTful API<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className='flex'>Stripe<div className='text-stone-200'>&#x2c;</div></div>
+                                            <div className=''>Firebase</div>
+                                        </div>
+                                    </div>
+                                    <div className='ml-33 text-yellow-200 -mt-0.25 flex'>&#125;</div>
                                 </div>
-                                <div onClick={copyNumber} className={`flex justify-center cursor-pointer ${leftCol}`}>
-                                    <PhoneCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
-                                </div>
-                                <div className={`${leftCol}`}>
-                                    <Link target="_blank" href="https://github.com/tianxiaozhang1/" rel="noopener noreferrer">
-                                        <GithubCodeIcon background={`[#333333]`} foreground={"[#858585]"}/>
-                                    </Link>
-                                </div>
+                                
+                            </div>
+
+                            <div className='w-1.5 h-full bg-[#285970]'></div>
+                        </div>
+
+                    </div>
+                    <div className='h-6 w-full bg-[#2d7acb] flex items-center justify-between'>
+                        <div className='flex'>
+                            <div className='bg-[#2f815c] hover:bg-[#428e8b] px-2 h-6 flex items-center cursor-pointer'>
+                                <RemoteIcon/>
+                            </div>
+                            <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
+                                <SourceControlIcon/>
+                                <div className='text-white text-xs ml-0.5 '>main</div>
+                            </div>
+                            <div className='mx-0.5 flex justify-center items-center hover:bg-[#3b8bd1] cursor-pointer h-6 w-6'>
+                                <SyncIcon/>
+                            </div>
+
+                            <div className='flex justify-center items-center hover:bg-[#3b8bd1] cursor-pointer h-6 px-1 text-white text-xs'>
+                                <ErrorIcon/>
+                                <div className='mx-0.5'>0</div>
+                                <WarningIcon/>
+                                <div className='mx-0.5'>0</div>
                             </div>
                         </div>
 
-                        <div className={`bg-[#1e1e1e] h-full w-full flex overflow-hidden cursor-default ${sourceCodePro.className}`}>
-                            <div className={`w-8 h-full text-end pr-2 pt-0 text-stone-500 ${sourceCodePro.className}`}>
-                                {numberList.map((number, i) => {
-                                    return (
-                                        <div key={i} className='leading-6'>{number}</div>
-                                    )
-                                })}
+                        <div className='pr-1 flex'>
+                            <div className='hidden h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
+                                <div className='text-white text-xxs ml-0.5 '>Ln 25, Col 1</div>
                             </div>
-                            <div className=''>
-                                <div className='text-[#659849] mt-0'>&#47;&#47;&nbsp;HELLO WORLD</div>
-                                <div className='text-sky-200 flex'>name: Tian<div className='text-stone-200'>&#x2c;</div></div>
-
-                                <div className='text-sky-200 flex'>languages: <div className='text-yellow-200 ml-0'>&nbsp; &#123;</div></div>
-                                <div className='flex h-18'>
-                                    <div className='w-1 h-12'></div>
-                                    <div className='w-26 mr-4 space-x-8 flex pt-1'>
-                                        <div className='w-0.25 h-22 bg-stone-600'></div>
-                                        <div className='w-0.25 h-22 bg-stone-600'></div>
-                                        <div className='w-0.25 h-22 bg-stone-600'></div>
-                                        <div className='w-0.25 h-22 bg-stone-600'></div>
-                                    </div>
-                                    <div className='text-sky-200'>
-                                        <div className='ml-2 flex'>python<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2 flex'>javascript<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2'>typescript</div>
-                                    </div>
-                                </div>
-                                <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
-
-                                <div className='text-sky-200 flex -mt-0.25'>frameworks: <div className='text-yellow-200 pl-0.5 ml-2'>&#123;</div></div>
-                                <div className='flex h-30'>
-                                    <div className='w-1 h-24'></div>
-                                    <div className='w-26 mr-4 space-x-8 flex pt-1.5'>
-                                        <div className='w-0.25 h-34 bg-stone-600'></div>
-                                        <div className='w-0.25 h-34 bg-stone-600'></div>
-                                        <div className='w-0.25 h-34 bg-stone-600'></div>
-                                        <div className='w-0.25 h-34 bg-stone-600'></div>
-                                    </div>
-                                    <div className='text-sky-200'>
-                                        <div className='ml-2 flex'>django<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2 flex'>react<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2 flex'>next.js<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2 text-sky-500 flex'>vue<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2 text-sky-500'>angular</div>
-                                    </div>
-                                </div>
-                                <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
-
-                                <div className='text-sky-200 flex'>database: <div className='text-yellow-200 ml-2 pl-0.5'>&nbsp; &#123;</div></div>
-                                <div className='flex h-12'>
-                                    <div className='w-1 h-12'></div>
-                                    <div className='w-26 mr-4 space-x-8 flex pt-1'>
-                                        <div className='w-0.25 h-16 bg-stone-600'></div>
-                                        <div className='w-0.25 h-16 bg-stone-600'></div>
-                                        <div className='w-0.25 h-16 bg-stone-600'></div>
-                                        <div className='w-0.25 h-16 bg-stone-600'></div>
-                                    </div>
-                                    <div className='text-sky-200'>
-                                        <div className='ml-2 flex'>MySQL<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='ml-2'>MongoDB</div>
-                                    </div>
-                                </div>
-                                <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
-
-                                <div className='text-sky-200 flex '>other_skills:<div className='text-yellow-200 ml-1.5'>&#123;</div></div>
-                                <div className='flex h-30'>
-                                    <div className='w-1 h-24'></div>
-                                    <div className='w-29 mr-2 space-x-8 flex pt-1.5'>
-                                        <div className='w-0.25 h-33 bg-stone-600'></div>
-                                        <div className='w-0.25 h-33 bg-stone-600'></div>
-                                        <div className='w-0.25 h-33 bg-stone-600'></div>
-                                        <div className='w-0.25 h-33 bg-stone-600'></div>
-                                    </div>
-                                    <div className='text-sky-200 pl-0.5'>
-                                        <div className='flex'>TailwindCSS<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='flex -mt-0.5'>css<div className='text-stone-200'>&#x2c;&nbsp;</div>html<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='flex'>RESTful API<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className='flex'>Stripe<div className='text-stone-200'>&#x2c;</div></div>
-                                        <div className=''>Firebase</div>
-                                    </div>
-                                </div>
-                                <div className='ml-33 text-yellow-200 -mt-0.25 flex'>&#125;</div>
+                            <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
+                                <div className='text-white text-xs ml-0.5 '>Spaces: 4</div>
                             </div>
-                            
+                            <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1 pr-2'>
+                                <div className='text-white text-xs ml-0.5 '>UTF-8</div>
+                            </div>
+                            <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
+                                <FeedbackIcon/>
+                            </div>
+                            <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
+                                <BellIcon/>
+                            </div>
                         </div>
-
-                        <div className='w-1.5 h-full bg-[#285970]'></div>
                     </div>
-
                 </div>
-                <div className='h-6 w-full bg-[#2d7acb] flex items-center justify-between'>
-                    <div className='flex'>
-                        <div className='bg-[#2f815c] hover:bg-[#428e8b] px-2 h-6 flex items-center cursor-pointer'>
-                            <RemoteIcon/>
-                        </div>
-                        <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
-                            <SourceControlIcon/>
-                            <div className='text-white text-xs ml-0.5 '>main</div>
-                        </div>
-                        <div className='mx-0.5 flex justify-center items-center hover:bg-[#3b8bd1] cursor-pointer h-6 w-6'>
-                            <SyncIcon/>
-                        </div>
 
-                        <div className='flex justify-center items-center hover:bg-[#3b8bd1] cursor-pointer h-6 px-1 text-white text-xs'>
-                            <ErrorIcon/>
-                            <div className='mx-0.5'>0</div>
-                            <WarningIcon/>
-                            <div className='mx-0.5'>0</div>
-                        </div>
-                    </div>
-
-                    <div className='pr-1 flex'>
-                        <div className='hidden h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
-                            <div className='text-white text-xxs ml-0.5 '>Ln 25, Col 1</div>
-                        </div>
-                        <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
-                            <div className='text-white text-xs ml-0.5 '>Spaces: 4</div>
-                        </div>
-                        <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1 pr-2'>
-                            <div className='text-white text-xs ml-0.5 '>UTF-8</div>
-                        </div>
-                        <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
-                            <FeedbackIcon/>
-                        </div>
-                        <div className='flex h-6 hover:bg-[#3b8bd1] items-center cursor-pointer px-1'>
-                            <BellIcon/>
-                        </div>
-                    </div>
+                <div className='hidden md:flex mt-4 justify-center'>
+                    <ArrowIcon/>
                 </div>
             </div>
         </div>

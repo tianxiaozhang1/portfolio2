@@ -40,3 +40,11 @@
   #darkmode .checkbox:checked + .label .ball{
     transform: translateX(24px);
   } */
+
+@import "tailwindcss";
+
+@theme {
+  --breakpoint-xs: 30rem;
+  --breakpoint-2xl: 100rem;
+  --breakpoint-3xl: 120rem;
+}
