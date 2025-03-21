@@ -410,7 +410,7 @@ function Profile() {
                                     </div>
                                     <div className='ml-29 text-yellow-200 mt-0.25 flex'>&#125;<div className='text-stone-200'>&#x2c;</div></div>
 
-                                    <div className='text-sky-200 flex '>other_skills:<div className='text-yellow-200 ml-1.5'>&#123;</div></div>
+                                    <div className='text-sky-200 flex -mt-0.25'>other_skills:<div className='text-yellow-200 ml-1.5'>&#123;</div></div>
                                     <div className='flex h-30'>
                                         <div className='w-1 h-24'></div>
                                         <div className='w-29 mr-2 space-x-8 flex pt-1.5'>
