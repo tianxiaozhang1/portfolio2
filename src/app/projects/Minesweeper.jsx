@@ -633,7 +633,7 @@ function showOneSquare(singleBlock) {
             </Link>
 
             {/* SMALL */}
-            <Link target="_blank" href="https://github.com/tianxiaozhang1/minesweeper" rel="noopener noreferrer">                        
+            <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
                 <div className='w-92 h-78 md:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-2 px-2 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden scale-95'>
