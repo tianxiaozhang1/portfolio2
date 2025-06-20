@@ -570,7 +570,7 @@ function showOneSquare(singleBlock) {
         <div>
             
             {/* EXTRA LARGE */}
-            <Link target="_blank" href="https://github.com/tianxiaozhang1/minesweeper" rel="noopener noreferrer">                        
+            <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
                 <div className='hidden xl:flex xl:w-316 xl:h-152 overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden'>
@@ -591,7 +591,7 @@ function showOneSquare(singleBlock) {
             </Link>
 
             {/* LARGE */}
-            <Link target="_blank" href="https://github.com/tianxiaozhang1/minesweeper" rel="noopener noreferrer">                        
+            <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
                 <div className='hidden lg:flex lg:w-252 lg:h-120 xl:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden'>
@@ -612,7 +612,7 @@ function showOneSquare(singleBlock) {
             </Link>
 
             {/* MEDIUM */}
-            <Link target="_blank" href="https://github.com/tianxiaozhang1/minesweeper" rel="noopener noreferrer">                        
+            <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
                 <div className='hidden md:flex md:w-190 md:h-132 lg:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden scale-95'>
