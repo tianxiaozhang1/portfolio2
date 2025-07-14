@@ -2,11 +2,6 @@ import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion, useInView } from 'framer-motion';
 
-import Card10 from '../../../images/freecell/10.png'
-import Card11 from '../../../images/freecell/11.png'
-import Card12 from '../../../images/freecell/12.png'
-import Card13 from '../../../images/freecell/13.png'
-
 const Freecell = () => {
     const freecellRef = useRef(null);
     const isInView = useInView(freecellRef, { once: true, amount: 0.5 }); // Trigger when 50% of the element is visible
