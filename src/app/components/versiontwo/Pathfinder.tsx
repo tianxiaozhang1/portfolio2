@@ -245,7 +245,7 @@ const Pathfinder = () => {
                 <div className='bg-[#E5A84B] flex' style={{width: 36, height: 36}}>
                     <div className='bg-stone-100' style={{width: 20, height: 24, marginLeft: 8, marginTop: 6}}>
                         <div className='bg-[#E5A84B]' style={{width: 15, height: 4, marginLeft: 5, marginTop: 5}}></div>
-                        <div className='bg-[#E5A84B]' style={{width: 15, height: 5, marginLeft: 15, marginTop: 0}}></div>
+                        <div className='bg-[#E5A84B]' style={{width: 5, height: 5, marginLeft: 15, marginTop: 0}}></div>
                         <div className='bg-[#E5A84B]' style={{width: 15, height: 10, marginLeft: 5, marginTop: 0}}></div>
                     </div>
                 </div>
@@ -290,7 +290,7 @@ const Pathfinder = () => {
                 <div className='bg-[#E5A84B] flex' style={{width: 36, height: 36}}>
                     <div className='bg-stone-100' style={{width: 20, height: 24, marginLeft: 8, marginTop: 6}}>
                         <div className='bg-[#E5A84B]' style={{width: 15, height: 4, marginLeft: 5, marginTop: 5}}></div>
-                        <div className='bg-[#E5A84B]' style={{width: 15, height: 5, marginLeft: 15, marginTop: 0}}></div>
+                        <div className='bg-[#E5A84B]' style={{width: 5, height: 5, marginLeft: 15, marginTop: 0}}></div>
                         <div className='bg-[#E5A84B]' style={{width: 15, height: 5, marginLeft: 5, marginTop: 0}}></div>
                     </div>
                 </div>
