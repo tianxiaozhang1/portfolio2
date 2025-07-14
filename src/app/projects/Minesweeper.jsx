@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import Link from 'next/link'
 
@@ -397,18 +397,8 @@ const Numbers = (number) => {
 
 }
 
-let initialGrid = [
-
-    [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-    [[1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-    [["M", 1], ["I", 2],  ["N", 1], ["E", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-    [[1, -6], [1, -7], [1, -8], [0, -2], ["S", 1], ["W", 1], ["E", 1], ["E", 1], ["P", 1], ["E", 1], ["R", 1]],
-    [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2]],
-    [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2]],
-    [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], ["AR", 1]]
-];
-
-let XLGrid = [
+// Original grid definitions
+const originalXLGrid = [
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
@@ -421,7 +411,7 @@ let XLGrid = [
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
 ];
 
-let LGGrid = [
+const originalLGGrid = [
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
     [[0, -1], [0, -1], [0, -1], ["S1", 1], ["E1", 1], ["L1", 1], ["F1", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
@@ -432,7 +422,7 @@ let LGGrid = [
     [[0, -1], [0, -1], [0, -1], [1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
 ];
 
-let MDGrid = [
+const originalMDGrid = [
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
     [[0, -1], ["S1", 1], ["E1", 1], ["L1", 1], ["F1", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
@@ -443,7 +433,7 @@ let MDGrid = [
     [[0, -1], [1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
 ];
 
-let smallInitialGrid = [
+const originalSmallInitialGrid = [
     [[1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1]],
     [ [0, -1], ["M", 1], ["I", 2],  ["N", 1], ["E", 1], [0, -1]],
     [[1, -6], ["S", 1], ["W", 1], ["E", 1], ["E", 1],  [0, -1]],
@@ -451,130 +441,181 @@ let smallInitialGrid = [
     [[0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2]],
 ];
 
-// let bigGrid = [
+// Helper to deep copy a grid
+const deepCopyGrid = (grid) => JSON.parse(JSON.stringify(grid));
 
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], ["S1", 1], ["E1", 1], ["L1", 1], ["F1", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], ["S2", 1], ["O", 1], ["L2", 1], ["V", 1], ["FF", 1], ["N2", 1], ["G", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     // [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]], 
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], ["M", 1], ["I", 2],  ["N", 1], ["E", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [1, -6], [1, -7], [1, -8], [0, -2], ["S", 1], ["W", 1], ["E", 1], ["E", 1], ["P", 1], ["E", 1], ["R", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     // [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], ["AR", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     // [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]]
-// ];
+// Function to replace characters with 0 for initial animation state
+const createInitialAnimatedGrid = (grid, charactersToReplace) => {
+    const newGrid = deepCopyGrid(grid);
+    charactersToReplace.forEach(item => {
+        newGrid[item.row][item.col] = [0, 1]; // Set to 0, but keep status as 1 for rendering
+    });
+    return newGrid;
+};
 
-// let smallInitialGrid = [
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], ["M", 1], ["I", 2],  ["N", 1], ["E", 1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[1, -6], [1, -6], ["S", 1], ["W", 1], ["E", 1], ["E", 1],  [0, -1], [0, -2], [0, -2], [0, -2], ],
-//     [[0, -2], [0, -2], ["P", 1], ["E", 1], ["R", 1], [0, -2], [0, -2], [0, -2], [0, -2], [0, -1]],
-//     [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -1]],
-//     [[0, -1], [0, -1],  [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-// ];
+// Character definitions for animation
+const XLCharactersToAnimate = [
+    { row: 3, col: 5, char: "S1" }, { row: 3, col: 6, char: "E1" }, { row: 3, col: 7, char: "L1" }, { row: 3, col: 8, char: "F1" },
+    { row: 4, col: 9, char: "S2" }, { row: 4, col: 10, char: "O" }, { row: 4, col: 11, char: "L2" }, { row: 4, col: 12, char: "V" },
+    { row: 4, col: 13, char: "FF" }, { row: 4, col: 14, char: "N2" }, { row: 4, col: 15, char: "G" }
+];
 
-// let initialGrid = [
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[1, -3], [1, -4], [1, -5], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [["M", 1], ["I", 2],  ["N", 1], ["E", 1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]],
-//     [[1, -6], [1, -7], [1, -8], [0, -2], ["S", 1], ["W", 1], ["E", 1], ["E", 1], ["P", 1], ["E", 1], ["R", 1]],
-//     [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2]],
-//     [[0, -2], [0, -2],  [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2], [0, -2]],
-//     [[0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1], [0, -1]]
-// ];
+const LGCharactersToAnimate = [
+    { row: 2, col: 3, char: "S1" }, { row: 2, col: 4, char: "E1" }, { row: 2, col: 5, char: "L1" }, { row: 2, col: 6, char: "F1" },
+    { row: 3, col: 7, char: "S2" }, { row: 3, col: 8, char: "O" }, { row: 3, col: 9, char: "L2" }, { row: 3, col: 10, char: "V" },
+    { row: 3, col: 11, char: "FF" }, { row: 3, col: 12, char: "N2" }, { row: 3, col: 13, char: "G" }
+];
+
+const MDCharactersToAnimate = [
+    { row: 2, col: 1, char: "S1" }, { row: 2, col: 2, char: "E1" }, { row: 2, col: 3, char: "L1" }, { row: 2, col: 4, char: "F1" },
+    { row: 3, col: 5, char: "S2" }, { row: 3, col: 6, char: "O" }, { row: 3, col: 7, char: "L2" }, { row: 3, col: 8, char: "V" },
+    { row: 3, col: 9, char: "FF" }, { row: 3, col: 10, char: "N2" }, { row: 3, col: 11, char: "G" }
+];
+
+const SMCharactersToAnimate = [
+    { row: 1, col: 1, char: "M" }, { row: 1, col: 2, char: "F" }, { row: 1, col: 3, char: "N" }, { row: 1, col: 4, char: "E" },
+    { row: 2, col: 1, char: "S" }, { row: 2, col: 2, char: "W" }, { row: 2, col: 3, char: "E" }, { row: 2, col: 4, char: "E" },
+    { row: 3, col: 1, char: "P" }, { row: 3, col: 2, char: "E" }, { row: 3, col: 3, char: "R" }
+];
+
 
 const Minesweeper = () => {
-    const [miniXLGrid, setMiniXLGrid] = useState(
-        XLGrid
-    );
+    // Initial states for animated grids (all non-numeric characters start as 0)
+    const [animatedXLGrid, setAnimatedXLGrid] = useState(() => createInitialAnimatedGrid(originalXLGrid, XLCharactersToAnimate));
+    const [animatedLGGrid, setAnimatedLGGrid] = useState(() => createInitialAnimatedGrid(originalLGGrid, LGCharactersToAnimate));
+    const [animatedMDGrid, setAnimatedMDGrid] = useState(() => createInitialAnimatedGrid(originalMDGrid, MDCharactersToAnimate));
+    const [animatedSMGrid, setAnimatedSMGrid] = useState(() => createInitialAnimatedGrid(originalSmallInitialGrid, SMCharactersToAnimate));
 
-    const [miniLGGrid, setMiniLGGrid] = useState(
-        LGGrid
-    );
+    // Refs for Intersection Observer
+    const xlRef = useRef(null);
+    const lgRef = useRef(null);
+    const mdRef = useRef(null);
+    const smRef = useRef(null);
 
-    const [miniMDGrid, setMiniMDGrid] = useState(
-        MDGrid
-    );
+    // Function to handle character reveal animation
+    const startAnimation = (setGridState, charactersToAnimate) => {
+        charactersToAnimate.forEach((item, index) => {
+            setTimeout(() => {
+                setGridState(prevGrid => {
+                    const newGrid = deepCopyGrid(prevGrid);
+                    // Ensure the row and column exist before attempting to update
+                    if (newGrid[item.row] && newGrid[item.row][item.col]) {
+                        newGrid[item.row][item.col] = [item.char, 1];
+                    }
+                    return newGrid;
+                });
+            }, index * (1500 / charactersToAnimate.length)); // Distribute 1500ms evenly
+        });
+    };
 
-function showOneSquare(singleBlock) {
-    if (singleBlock[1] < 1) {      
-        return Numbers("U")
-    } else if (singleBlock[1] === 1) {
-        if (Number.isInteger(singleBlock[0])) {
-            return Numbers(singleBlock[0])
-        } else {
-            return Numbers(singleBlock[0])
+    // Effect for XL grid animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    startAnimation(setAnimatedXLGrid, XLCharactersToAnimate);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.5 }
+        );
+        if (xlRef.current) {
+            observer.observe(xlRef.current);
         }
-    } else if (singleBlock[1] === 2) {
-        return Numbers("F")
+        return () => {
+            if (xlRef.current) {
+                observer.unobserve(xlRef.current);
+            }
+        };
+    }, []);
+
+    // Effect for LG grid animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    startAnimation(setAnimatedLGGrid, LGCharactersToAnimate);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.5 }
+        );
+        if (lgRef.current) {
+            observer.observe(lgRef.current);
+        }
+        return () => {
+            if (lgRef.current) {
+                observer.unobserve(lgRef.current);
+            }
+        };
+    }, []);
+
+    // Effect for MD grid animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    startAnimation(setAnimatedMDGrid, MDCharactersToAnimate);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.5 }
+        );
+        if (mdRef.current) {
+            observer.observe(mdRef.current);
+        }
+        return () => {
+            if (mdRef.current) {
+                observer.unobserve(mdRef.current);
+            }
+        };
+    }, []);
+
+    // Effect for SM grid animation
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    startAnimation(setAnimatedSMGrid, SMCharactersToAnimate);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.5 }
+        );
+        if (smRef.current) {
+            observer.observe(smRef.current);
+        }
+        return () => {
+            if (smRef.current) {
+                observer.unobserve(smRef.current);
+            }
+        };
+    }, []);
+
+
+    function showOneSquare(singleBlock) {
+        if (singleBlock[1] < 1) {      
+            return Numbers("U")
+        } else if (singleBlock[1] === 1) {
+            if (Number.isInteger(singleBlock[0])) {
+                return Numbers(singleBlock[0])
+            } else {
+                return Numbers(singleBlock[0])
+            }
+        } else if (singleBlock[1] === 2) {
+            return Numbers("F")
+        }
     }
-}
-
-    // function openUpSquare(singleBlock) {
-
-    //     const updatedGrid = miniGrid.map(miniRow => {
-    //         return (
-    //             miniRow.map(miniSquare => {
-
-    //                 if (singleBlock[1] === 1) {
-    //                     return miniSquare;
-    //                 } 
-    //                 else if (singleBlock[1] === -1) {
-    //                     if (miniSquare[1] === -1) {
-    //                         return [0, 1]
-    //                     } 
-    //                     if (miniSquare[1] === -3 || miniSquare[1] === -4 || miniSquare[1] === -5) {
-    //                         return [1, 1]
-    //                     }
-    //                     else {
-    //                         return miniSquare;
-    //                     }
-    //                 } 
-    //                 else if (singleBlock[1] === -2) {
-    //                     if (miniSquare[1] === -2) {
-    //                         return [0, 1]
-    //                     } 
-    //                     if (miniSquare[1] === -6 || miniSquare[1] === -7 || miniSquare[1] === -8) {
-    //                         return [1, 1]
-    //                     }
-    //                     else {
-    //                         return miniSquare;
-    //                     }
-    //                 } 
-    //                 else if (singleBlock[1] < -2) {
-    //                     if (miniSquare[1] === singleBlock[1]) {
-    //                         return [1, 1]
-    //                     }
-    //                     else {
-    //                         return miniSquare;
-    //                     }
-    //                 } 
-    //             })
-    //         )
-
-    //     })
-
-    //     setMiniGrid(updatedGrid);
-
-    // }
     
     return (
 
         <div>
-            
             {/* EXTRA LARGE */}
             <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
-                <div className='hidden xl:flex xl:w-316 xl:h-152 overflow-hidden justify-center items-center rounded-3xl'>
+                <div ref={xlRef} className='hidden xl:flex xl:w-316 xl:h-152 overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden'>
-                            {miniXLGrid.map((singleRow, i) => {
+                            {animatedXLGrid.map((singleRow, i) => {
                                 return (
                                     <div className='flex' key={i} >
                                         {singleRow.map((singleBlock, j) => {
@@ -592,10 +633,10 @@ function showOneSquare(singleBlock) {
 
             {/* LARGE */}
             <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
-                <div className='hidden lg:flex lg:w-252 lg:h-120 xl:hidden overflow-hidden justify-center items-center rounded-3xl'>
+                <div ref={lgRef} className='hidden lg:flex lg:w-252 lg:h-120 xl:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden'>
-                            {miniLGGrid.map((singleRow, i) => {
+                            {animatedLGGrid.map((singleRow, i) => {
                                 return (
                                     <div className='flex' key={i} >
                                         {singleRow.map((singleBlock, j) => {
@@ -613,10 +654,10 @@ function showOneSquare(singleBlock) {
 
             {/* MEDIUM */}
             <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
-                <div className='hidden md:flex md:w-190 md:h-132 lg:hidden overflow-hidden justify-center items-center rounded-3xl'>
+                <div ref={mdRef} className='hidden md:flex md:w-190 md:h-132 lg:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-5 px-5 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden scale-95'>
-                            {miniMDGrid.map((singleRow, i) => {
+                            {animatedMDGrid.map((singleRow, i) => {
                                 return (
                                     <div className='flex' key={i} >
                                         {singleRow.map((singleBlock, j) => {
@@ -634,10 +675,10 @@ function showOneSquare(singleBlock) {
 
             {/* SMALL */}
             <Link target="_blank" href="https://minesweeper-pi-azure.vercel.app/" rel="noopener noreferrer">                        
-                <div className='w-92 h-78 md:hidden overflow-hidden justify-center items-center rounded-3xl'>
+                <div ref={smRef} className='w-92 h-78 md:hidden overflow-hidden justify-center items-center rounded-3xl'>
                     <div className='bg-mineBoardColor py-2 px-2 flex justify-center items-center cursor-pointer rounded-3xl'>
                         <div className='bg-mineBoardColor px-0 overflow-hidden scale-95'>
-                            {smallInitialGrid.map((singleRow, i) => {
+                            {animatedSMGrid.map((singleRow, i) => {
                                 return (
                                     <div className='flex' key={i} >
                                         {singleRow.map((singleBlock, j) => {
@@ -652,47 +693,6 @@ function showOneSquare(singleBlock) {
                     </div>
                 </div>
             </Link>
-            {/* </div> */}
-
-            {/* MEDIUM AND LARGER */}
-            {/* xl:hidden */}
-            {/* <div className='hidden md:flex'>
-                <div className='bg-white flex justify-center items-center border-slate-200 border-2 rounded-3xl' style={{height: 408, width: 640, overflow: 'hidden'}}>
-                    <div className=' flex items-center -mt-2'>
-                        <div className='bg-mineBoardColor pt-2' style={{height: 418, width: 654, marginTop: 0}}>
-                            {miniGrid.map((singleRow, i) => {
-                                return (
-                                    <div className='ml-2 flex' key={i} >
-                                        {singleRow.map((singleBlock, j) => {
-                                            return <div className='ml-0.5 mt-0.5 cursor-pointer' key={j}>
-                                                    {showOneSquare(singleBlock)}
-                                                    </div>
-                                        })}
-                                    </div> 
-                                )
-                            })}         
-                        </div>
-                    </div>
-                </div>
-            </div> */}
-            {/* SMALL */}
-            {/* <div className='md:hidden bg-white flex justify-center items-center border-slate-200 border-2 rounded-3xl' style={{height: 372, width: 372, overflow: 'hidden'}}>
-                <div>
-                    <div className='bg-mineBoardColor pt-2' style={{height: 400, width: 400, marginTop: -134, marginLeft: -80}}>
-                        {smallInitialGrid.map(singleRow => {
-                            return (
-                                <div className='ml-2 flex'>
-                                    {singleRow.map(singleBlock => {
-                                        return <div className='ml-0.5 mt-0.5 cursor-pointer'>
-                                                {showOneSquare(singleBlock)}
-                                                </div>
-                                    })}
-                                </div> 
-                            )
-                        })}         
-                    </div>
-                </div>
-            </div> */}
         </div>
     )
 }
