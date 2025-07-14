@@ -307,7 +307,7 @@ function Profile() {
     }
 
     return (
-        <div className='w-full md:h-screen flex justify-center items-center bg-gradient-to-br from-[#d7eaf7] to-[#f9f9f9]'>
+        <div className='w-full md:h-screen flex justify-center items-center'>
             <div className=''>
                 <div className='md:w-100'>
                     <div className={`w-full h-158 md:w-100 `}>
