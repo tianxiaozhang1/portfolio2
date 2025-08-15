@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'next/link'; // Assuming you'll add links later
+import Link from 'next/link'; 
 import localFont from 'next/font/local'
 // import { source_code_pro, inter } from '../../../fonts'; 
 const selawkReg = localFont({ src: '../../fonts/selawk.ttf' })

@@ -593,12 +593,6 @@ function Profile2() {
                                         ABOUT
                                     </div>
                                     <div 
-                                        className={getMainBottomNavLinkClasses('SKILLS')}
-                                        onClick={() => setActiveBottomTab('SKILLS')}
-                                    >
-                                        SKILLS
-                                    </div>
-                                    <div 
                                         className={getMainBottomNavLinkClasses('TERMINAL')}
                                         onClick={() => setActiveBottomTab('TERMINAL')}
                                     >
@@ -641,18 +635,11 @@ function Profile2() {
                                     <div className={`text-base pl-6 pr-2 ${source_code_pro.className}`}> 
                                         {activeBottomTab === 'ABOUT' && (
                                             <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
+                                                <div className='flex'>&#47;&#47;&nbsp;Hello, my name is Tian.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;I am a passionate Full Stack Developer with a knack for building robust and scalable web applications.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;My focus is on creating intuitive user experiences and efficient backend systems.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;Always eager to learn new technologies and solve complex problems.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;Seeking opportunities to contribute to innovative projects.</div>
-                                            </div>
-                                        )}
-                                        {activeBottomTab === 'SKILLS' && (
-                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                                                <div className='flex'>&#47;&#47;&nbsp;React: Proficient in building dynamic SPAs with functional components, hooks, and state management (Redux/Context API).</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Python/Django: Strong in backend development, RESTful API design, ORM, and secure server-side logic.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Cloud/DevOps: Experienced with AWS services (EC2, S3) and containerization (Docker) for robust deployments.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;AI Integration: Capable of leveraging LLM APIs and prompt engineering for intelligent features.</div>
                                             </div>
                                         )}
                                         {activeBottomTab === 'TERMINAL' && (

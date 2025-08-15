@@ -7,8 +7,10 @@ import Link from 'next/link';
 // Import project content components
 import Contact from '../MainSlides/Contact';
 import Tianphoto from '../MainSlides/Tianphoto';
-import DefaultContent from '../MainSlides/DefaultContent'; // New import
-import BurgerShackContent from '../MainSlides/BurgerShackContent'; // New import
+import DefaultContent from '../MainSlides/DefaultContent';
+import BurgerShackContent from '../MainSlides/BurgerShackContent';
+import InstagramContent from '../MainSlides/InstagramContent';
+import GithubContent from '../MainSlides/GithubContent';
 
 // Define project data. You can expand this with more details per project
 const projectDetails = {
@@ -25,9 +27,7 @@ const projectDetails = {
     'tianphoto': {
         type: 'project',
         content: (theme) => (
-            <div>
-                <Tianphoto theme={theme} />
-            </div>
+            <div><Tianphoto theme={theme} /></div>
         ),
         showLineNumbers: true, // Show for photography project
     },
@@ -36,33 +36,15 @@ const projectDetails = {
         content: (theme) => <Contact theme={theme} />, 
         showLineNumbers: false, // Explicitly hide line numbers for contact info
     },
-    'instagram': { // Placeholder for Instagram content (will remain separate)
+    'instagram': { // New contact section, now uses ContactContent component
         type: 'icon',
-        content: (theme) => (
-            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                <div className='flex'>&#47;&#47;&nbsp;This section could link to your Instagram portfolio.</div>
-                <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'}`}>
-                    <Link target="_blank" href="https://www.instagram.com/your_instagram_handle/" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>
-                        &#47;&#47;&nbsp;[Visit Instagram Profile]
-                    </Link>
-                </div>
-            </div>
-        ),
-        showLineNumbers: true, // Show line numbers for this placeholder, adjust if needed
+        content: (theme) => <InstagramContent theme={theme} />, 
+        showLineNumbers: true, // Explicitly hide line numbers for contact info
     },
-    'github': { // Placeholder for Github content (will remain separate)
+    'github': { // New contact section, now uses ContactContent component
         type: 'icon',
-        content: (theme) => (
-            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                <div className='flex'>&#47;&#47;&nbsp;This section links to your GitHub profile.</div>
-                <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'}`}>
-                    <Link target="_blank" href="https://github.com/tianxiaozhang1/" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>
-                        &#47;&#47;&nbsp;[Visit GitHub Profile]
-                    </Link>
-                </div>
-            </div>
-        ),
-        showLineNumbers: true, // Show line numbers for this placeholder, adjust if needed
+        content: (theme) => <GithubContent theme={theme} />, 
+        showLineNumbers: true, // Explicitly hide line numbers for contact info
     },
 };
 

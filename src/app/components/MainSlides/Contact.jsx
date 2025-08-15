@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 
-// Make sure you have the correct imports for your fonts and icons
 import { AtSign as AtSignIcon, PhoneIcon } from 'lucide-react';
 import { source_code_pro, inter } from '../../../fonts';
 import localFont from 'next/font/local'
