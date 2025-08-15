@@ -12,6 +12,8 @@ import React from 'react'
 
 import Profile from './components/homepage/Profile'
 
+import ProjectsHeading from './components/homepage/ProjectsHeading'
+
 import Momenta from './components/homepage/Momenta'
 import BurgerShack from './components/homepage/BurgerShack'
 import CityBank from './components/homepage/CityBank'
@@ -34,6 +36,14 @@ import Sorting2 from './projects/Sorting2'
 // import InstagramLogo from './components/logos/instagram'
 // import EmailLogo from './components/logos/email'
 
+import FreeCell2 from './components/versiontwo/FreeCell'
+import CityBank2 from './components/versiontwo/CityBank'
+import Venus2 from './components/versiontwo/Venus'
+import Momenta2 from './components/versiontwo/Momenta'
+import NowModels2 from './components/versiontwo/NowModels'
+import GamesSection from './components/versiontwo/GamesSection'
+import ScrollRevealSection from './components/versiontwo/ScrollRevealSection'
+
 import { Oswald } from 'next/font/google';
 const oswald = Oswald({ subsets: ['latin'], weight: "400" })
 
@@ -42,34 +52,51 @@ const titleCSS = "w-92 h-18 md:w-190 md:h-22 lg:flex lg:w-26 lg:h-120 xl:w-316 x
 // import "@fontsource/cascadia-code"
 
 export default function Home() {
+    
     return (
             <div className='bg-slate-50'>
 
                 {/* <div className=' h-16 bg-slate-200 w-full grid grid-cols-1 gap-6'></div> */}
 
-                <div className='flex justify-center mt-0 md:mt-0'><Profile/></div>
+                <div className='flex justify-center mt-0 md:mt-0 '><Profile/></div>
 
-                <div className={`${titleCSS}`}>Projects</div>
+                <div className=''>
+                    {/* <div className={`${titleCSS}`}>Projects</div> */}
+                    <ProjectsHeading/>
 
-                <div className='flex justify-center mt-3 md:mt-6'><BurgerShack/></div>
-                <div className='flex justify-center mt-3 md:mt-6'><Momenta/></div>  
-                <div className='flex justify-center mt-3 md:mt-6'><CityBank/></div> 
-                <div className='flex justify-center mt-3 md:mt-6'><Venus/></div>
-                <div className='flex justify-center mt-3 md:mt-6'><NowModels/></div>
+                    <div className='flex justify-center mt-3 md:mt-6'><BurgerShack/></div>
+                    <div className='flex justify-center mt-3 md:mt-6'><Momenta/></div>  
+                    {/* <div className='flex justify-center mt-3 md:mt-6'><Momenta2/></div>   */}
+                    <div className='flex justify-center mt-3 md:mt-6'><CityBank/></div> 
+                    {/* <div><CityBank2/></div> */}
+                    <div className='flex justify-center mt-3 md:mt-6'><Venus/></div>
+                    {/* <div className='flex justify-center mt-3 md:mt-6'><Venus2/></div> */}
+                    <div className='flex justify-center mt-3 md:mt-6'><NowModels/></div>
 
-                <div className={`${titleCSS}`}>Games</div>
+                    {/* <div className='flex justify-center mt-3 md:mt-6'><NowModels2/></div> */}
 
-                <div className='flex justify-center mt-3 md:mt-6'><Minesweeper/></div>
+                    {/* <ScrollRevealSection/> */}
 
-                <div className='flex justify-center mt-3 md:mt-6'><Freecell/></div>
+                    {/* <div className='flex justify-center '><GamesSection/></div> */}
 
-                <div className='flex justify-center mt-3 md:mt-6'><Sudoku/></div>
+                    <div className={`${titleCSS}`}>Games</div>
 
-                <div className={`${titleCSS}`}>Algorithm</div>
+                    <div className='flex justify-center mt-3 md:mt-6'><Minesweeper/></div>
 
-                <div className='flex justify-center mt-3 md:mt-6'><Pathfinder/></div>
+                    <div className='flex justify-center mt-3 md:mt-6'><Freecell/></div>
 
-                <div className='flex justify-center mt-3 md:mt-6'><Sorting2/></div>
+                    <div className='flex justify-center mt-3 md:mt-6'><FreeCell2/></div>
+
+                    <div className='flex justify-center mt-3 md:mt-6'><Sudoku/></div>
+
+                    <div className={`${titleCSS}`}>Algorithm</div>
+
+                    <div className='flex justify-center mt-3 md:mt-6'><Pathfinder/></div>
+
+                    <div className='flex justify-center mt-3 md:mt-6'><Sorting2/></div>
+                </div>
+
+                
     
                 <div className={`h-24 w-full`}></div>
             </div>

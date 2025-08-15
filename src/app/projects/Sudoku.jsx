@@ -2,6 +2,11 @@ import React from 'react'
 import Link from 'next/link'
 
 function sudokuNumber (number, colour, background) {
+    if (number === 0) {
+        return <div>
+                    <div className={`bg-${background}`} style={{width: 80, height: 80}}></div>
+                </div>
+    }
     if (number === 1) {
         return <div>
                     <div className={`bg-${background}`} style={{width: 80, height: 16}}></div>
@@ -621,9 +626,11 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(1, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(6, "sudokuBoard4x", "sudokuBoard2")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(7, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                             </div>
@@ -701,6 +708,7 @@ const Sudoku = () => {
 
                             <div className='flex'>
                                 <div className='bg-sudokuBoard5 pt-2 ' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(5, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
@@ -723,6 +731,7 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(1, "sudokuBoard5", "sudokuBoard1x")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(4, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                             </div>
@@ -732,9 +741,11 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(5, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(8, "sudokuBoard4x", "sudokuBoard2")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(6, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                             </div>
@@ -747,6 +758,7 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(2, "sudokuBoard5", "sudokuBoard1x")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(9, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                             </div>
@@ -761,12 +773,14 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber("U", "yaoSe", "sudokuBoard5")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard1x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(2, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                             </div>
 
                             <div className='flex'>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(1, "sudokuBoard1x", "sudokuBoard5")}</div> 
                                 </div>
                                 <div className='bg-yaoSe pt-2' style={{height: 80, width: 80}}>
@@ -785,6 +799,7 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber("U", "yaoSe", "sudokuBoard5")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard1x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(4, "sudokuBoard5", "sudokuBoard1x")}</div>
                                 </div>
                             </div>
@@ -793,6 +808,7 @@ const Sudoku = () => {
                         <div style={{marginLeft: 8}}>
                             <div className='flex items-center justify-center'>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(8, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
@@ -805,24 +821,29 @@ const Sudoku = () => {
 
                             <div className='flex'>
                                 <div className='bg-sudokuBoard5 pt-2 ' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(2, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(4, "sudokuBoard4x", "sudokuBoard2")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(9, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                             </div>
 
                             <div className='flex'>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(7, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(5, "sudokuBoard5", "sudokuBoard1x")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(1, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                             </div>
@@ -838,6 +859,7 @@ const Sudoku = () => {
                                         <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(9, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                     </div>
                                     <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                        {/* THIS */}
                                         <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(3, "sudokuBoard4x", "sudokuBoard2")}</div>
                                     </div>
                                     <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
@@ -880,12 +902,14 @@ const Sudoku = () => {
                             
                             <div className='flex items-center justify-center'>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(2, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(1, "sudokuBoard5", "sudokuBoard1x")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard4x pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(8, "sudokuBoard4x", "sudokuBoard2")}</div> 
                                 </div>
                             </div>
@@ -926,6 +950,7 @@ const Sudoku = () => {
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(7, "sudokuBoard4x", "sudokuBoard2")}</div>
                                 </div>
                                 <div className='bg-sudokuBoard5 pt-2' style={{height: 80, width: 80}}>
+                                    {/* THIS */}
                                     <div style={{marginLeft: 0, marginTop: -8}}>{sudokuNumber(6, "sudokuBoard5", "sudokuBoard1x")}</div> 
                                 </div>
                             </div>
