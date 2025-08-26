@@ -2,8 +2,8 @@
 import { useState, useRef, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { source_code_pro, inter } from '../../../fonts';
-import { Phone, User as UserIcon, Sun as SunIcon, Moon as MoonIcon } from 'lucide-react';
-// , AtSign as AtSignIcon, Send as SendIcon , Smartphone as SmartPhoneIcon
+// Removed AtSignIcon and SendIcon as they are now consolidated under Phone
+import { Phone, User as UserIcon, Sun as SunIcon, Moon as MoonIcon } from 'lucide-react'; 
 import {
     SourceControlIcon,
     SyncIcon,
@@ -12,14 +12,14 @@ import {
     RemoteIcon,
     BellIcon,
     FeedbackIcon,
-    // UserCodeIcon,
-    // MailCodeIcon,
-    // IGCodeIcon,
-    // WebsiteCodeIcon,
-    // PhoneCodeIcon,
-    // GithubCodeIcon,
+    UserCodeIcon,
+    MailCodeIcon,
+    IGCodeIcon,
+    WebsiteCodeIcon,
+    PhoneCodeIcon,
+    GithubCodeIcon,
     IGLucide,
-    // GithubLucide,
+    GithubLucide,
     GithubTwo,
     TerminalPowershell,
     VSCAdd,
@@ -28,9 +28,9 @@ import {
     VSCClose,
     VSCUp,
     VSCDown,
-    // VSCRight,
+    VSCRight,
     VSCEllipsis,
-    // VSCSearch,
+    VSCSearch,
     ReactIcon,
     PythonIcon,
     SquareSpaceIcon,
@@ -41,14 +41,14 @@ import {
 // Import the new ProjectDisplay component
 import ProjectDisplay from './ProjectDisplay';
 
-// const numberList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
+const numberList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
 
 function Profile2() {
-    // const leftCol = "border-2 border-[#333333] hover:border-stone-600";
+    const leftCol = "border-2 border-[#333333] hover:border-stone-600";
 
-    // const copyNumber = (e) => {
-    //     navigator.clipboard.writeText("4167286940");
-    // };
+    const copyNumber = (e) => {
+        navigator.clipboard.writeText("4167286940");
+    };
 
     // State for folder/file folding
     const [portfolioOpen, setPortfolioOpen] = useState(true);
@@ -368,8 +368,8 @@ function Profile2() {
                     <div className={`w-14 flex-shrink-0 h-full ${inter.className} z-20
                                     ${theme === 'dark' ? 'bg-[#333333]' : 'bg-[#dedede]'}`}>
                         <div className={getIconColumnClasses('user')} onClick={() => handleLeftIconClick('user')}><UserIcon className='w-8 h-8' theme={theme}/></div>
-                        {/* Consolidated contact icon */}
-                        <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className='w-9 h-9' strokeWidth={1.5}/></div>                        
+                        {/* Consolidated contact icon - removed explicit size/strokeWidth for a more default/traditional look */}
+                        <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className="w-9 h-9" strokeWidth={1.5} /></div>                        
                         <div className={getIconColumnClasses('instagram')} onClick={() => handleLeftIconClick('instagram')}><IGLucide size="w-10 h-10" /></div>
                         <div className={getIconColumnClasses('github')} onClick={() => handleLeftIconClick('github')}><GithubTwo className='w-12 h-12'/></div>                        
                     </div>
@@ -378,7 +378,7 @@ function Profile2() {
                     <div
                         ref={explorerContainerRef}
                         style={{ width: `${explorerWidth}px` }}
-                        className={`z-10 relative ${inter.className}
+                        className={`z-10 relative flex-shrink-0 ${inter.className}
                                     ${theme === 'dark' ? 'bg-[#252526]' : 'bg-[#f3f3f3]'}`}
                         onClick={() => setSelectedItem(null)}                        
                     >
@@ -564,7 +564,7 @@ function Profile2() {
                     ></div>
                     
                     {/* MAIN */}
-                    <div ref={mainContentRef} className={`flex-grow flex flex-col ${source_code_pro.className}`}>
+                    <div ref={mainContentRef} className={`flex-grow min-w-0 flex flex-col ${source_code_pro.className}`}> {/* Added min-w-0 here */}
                         {/* MAIN TOP - Code Editor Area */}
                         <div className={`flex flex-grow min-h-[100px] w-full text-base pl-2 pr-2 overflow-y-auto
                                         ${theme === 'dark' ? 'bg-[#1e1e1e]' : 'bg-[#fcfcfc]'}`}> {/* Adjusted background */}
@@ -591,6 +591,12 @@ function Profile2() {
                                         onClick={() => setActiveBottomTab('ABOUT')}
                                     >
                                         ABOUT
+                                    </div>
+                                    <div 
+                                        className={getMainBottomNavLinkClasses('SKILLS')}
+                                        onClick={() => setActiveBottomTab('SKILLS')}
+                                    >
+                                        SKILLS
                                     </div>
                                     <div 
                                         className={getMainBottomNavLinkClasses('TERMINAL')}
@@ -635,11 +641,18 @@ function Profile2() {
                                     <div className={`text-base pl-6 pr-2 ${source_code_pro.className}`}> 
                                         {activeBottomTab === 'ABOUT' && (
                                             <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                                                <div className='flex'>&#47;&#47;&nbsp;Hello, my name is Tian.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;I am a passionate Full Stack Developer with a knack for building robust and scalable web applications.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;My focus is on creating intuitive user experiences and efficient backend systems.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;Always eager to learn new technologies and solve complex problems.</div>
                                                 <div className='flex'>&#47;&#47;&nbsp;Seeking opportunities to contribute to innovative projects.</div>
+                                            </div>
+                                        )}
+                                        {activeBottomTab === 'SKILLS' && (
+                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
+                                                <div className='flex'>&#47;&#47;&nbsp;React: Proficient in building dynamic SPAs with functional components, hooks, and state management (Redux/Context API).</div>
+                                                <div className='flex'>&#47;&#47;&nbsp;Python/Django: Strong in backend development, RESTful API design, ORM, and secure server-side logic.</div>
+                                                <div className='flex'>&#47;&#47;&nbsp;Cloud/DevOps: Experienced with AWS services (EC2, S3) and containerization (Docker) for robust deployments.</div>
+                                                <div className='flex'>&#47;&#47;&nbsp;AI Integration: Capable of leveraging LLM APIs and prompt engineering for intelligent features.</div>
                                             </div>
                                         )}
                                         {activeBottomTab === 'TERMINAL' && (
@@ -692,7 +705,7 @@ function Profile2() {
                         <div className={`${footerIconClass}`}><ErrorIcon/></div>
                         <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
                         <div className={`${footerIconClass}`}><WarningIcon/></div>
-                        <div className={`mx-0.5 ${footerIconClass}`}>0</div>
+                        <div the={`${footerIconClass}`}>0</div>
                     </div>
                 </div>
 

@@ -6,7 +6,7 @@ const selawkReg = localFont({ src: '../../fonts/selawk.ttf' })
 
 function Tianphoto({theme}) { 
     return (
-        <div className='text-start'>
+        <div className='text-start ml-2'>
             <Link target="_blank" href="https://tianphoto.ca" className={`hover:cursor-pointer`}>
                 <div className={`${theme === 'dark' ? ' ' : '' } ${selawkReg.className} font-normal rounded-sm text-stone-100 bg-[#27639b] text-start px-2 py-1 my-5 w-fit`}>tianphoto.ca</div>
             </Link>

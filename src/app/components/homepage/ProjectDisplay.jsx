@@ -9,6 +9,7 @@ import Contact from '../MainSlides/Contact';
 import Tianphoto from '../MainSlides/Tianphoto';
 import DefaultContent from '../MainSlides/DefaultContent';
 import BurgerShackContent from '../MainSlides/BurgerShackContent';
+import NowModelsContent from '../MainSlides/NowModelsContent';
 import InstagramContent from '../MainSlides/InstagramContent';
 import GithubContent from '../MainSlides/GithubContent';
 
@@ -22,6 +23,11 @@ const projectDetails = {
     'burgershack': {
         type: 'project',
         content: (theme) => <BurgerShackContent theme={theme} />, // Using the new component
+        showLineNumbers: true, // Explicitly show for code-like project content
+    },
+    'nowmodels': {
+        type: 'project',
+        content: (theme) => <NowModelsContent theme={theme} />, // Using the new component
         showLineNumbers: true, // Explicitly show for code-like project content
     },
     'tianphoto': {
@@ -39,12 +45,12 @@ const projectDetails = {
     'instagram': { // New contact section, now uses ContactContent component
         type: 'icon',
         content: (theme) => <InstagramContent theme={theme} />, 
-        showLineNumbers: true, // Explicitly hide line numbers for contact info
+        showLineNumbers: false, // Explicitly hide line numbers for contact info
     },
     'github': { // New contact section, now uses ContactContent component
         type: 'icon',
         content: (theme) => <GithubContent theme={theme} />, 
-        showLineNumbers: true, // Explicitly hide line numbers for contact info
+        showLineNumbers: false, // Explicitly hide line numbers for contact info
     },
 };
 
@@ -67,14 +73,14 @@ const ProjectDisplay = ({ activeMainContent, theme }) => {
     return (
         <>
             {showLineNumbers && (
-                <div className={`w-8 h-full pl-1 pt-1.5 cursor-default flex-shrink-0
+                <div className={`w-8 h-full pl-1 ml-2 pt-1.5 cursor-default flex-shrink-0
                                 ${theme === 'dark' ? 'text-stone-500' : 'text-gray-400'}`}>
                     {numberList.map((number, i) => (
                         <div key={i} className='w-full text-right'>{number}</div>
                     ))}
                 </div>
             )}
-            <div className={`pt-0.5 mt-1 ml-4 pl-2 cursor-default flex-grow overflow-y-auto max-w-[796px]\
+            <div className={`${showLineNumbers === true ? 'ml-4' : 'ml-0 mt-2' } pt-0.5 mt-1  pl-2 cursor-default flex-grow overflow-y-auto max-w-[842px]
                             ${theme === 'dark' ? '' : 'text-gray-800'}`}>
                 {/* Use <pre> tag for simple text graphics to preserve whitespace */}
                 {contentToDisplay.content(theme)}

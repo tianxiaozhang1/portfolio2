@@ -9,7 +9,7 @@ function Contact({ theme }) {
 
     const [status, setStatus] = useState('');
     const emailParts = ['tian', 'xiao', 'zhang', '@', 'gmail', '.', 'com'];
-    const phoneParts = ['4', '1', '6', '-', '728', '69', '40'];
+    const phoneParts = ['4', '1', '6', '-', '728', '-', '69', '40'];
     const [emailCopyStatus, setEmailCopyStatus] = React.useState('');
     const [phoneCopyStatus, setPhoneCopyStatus] = React.useState('');
     

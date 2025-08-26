@@ -3,7 +3,7 @@ import Link from 'next/link'; // Assuming Link is used for navigation
 
 function DefaultContent({ theme }) {
     return (
-        <>
+        <div className=''>
             <div className={`${theme === 'dark' ? 'text-[#659849]' : 'text-[#68945c]'} text-start`}>&#47;&#47;&nbsp;HELLO WORLD</div>
             <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex`}>name: tian<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
             <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex`}>location: toronto<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
@@ -107,7 +107,7 @@ function DefaultContent({ theme }) {
                 </div>
                 <div className={`${theme === 'dark' ? 'text-[#fad91c]' : 'text-[#DB9D34]'} mt-0 flex`}>&nbsp;&#125;<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}></div></div>
             </div>
-        </>
+        </div>
     );
 }
 

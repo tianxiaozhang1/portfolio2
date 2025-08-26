@@ -28,7 +28,7 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx"
-  ],
+, "src/app/components/MainSlides/NowModelsContent.tsx"  ],
   "exclude": [
     "node_modules"
   ]
