@@ -30,7 +30,7 @@ import FigmaLogo from '../../../../public/logos/Figma.svg'
 import ChatGPTLogo from '../../../../public/logos/ChatGPTLogo.svg'
 import GeminiLogo from '../../../../public/logos/Gemini.svg'
 import DeepSeekLogo from '../../../../public/logos/DeepSeek.svg'
-import RetoolLogo from '../../../../public/logos/Setool.svg'
+import RetoolLogo from '../../../../public/logos/Retool.svg'
 import SquarespaceLogo from '../../../../public/logos/Squarespace.svg'
 import ZapierLogo from '../../../../public/logos/Zapier.svg'
 
