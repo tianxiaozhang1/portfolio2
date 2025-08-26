@@ -5,15 +5,15 @@ function NowModelsContent({ theme }) {
   return (
     <div className='text-start'>
             <div className={`${theme === 'dark' ? 'text-[#659849]' : 'text-[#68945c]'} text-start`}>&#47;&#47;&nbsp;Project: NowModels.tsx</div>
-            <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'}`}>description: <span className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&nbsp;A front-end recreation of a high-fashion model agency's digital presence, focusing on aesthetic and usability.</span></div>
+            <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'}`}>description: <span className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&nbsp;A front-end recreation of a high-fashion model agency&apos;s digital presence, focusing on aesthetic and usability.</span></div>
             <div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'} text-start`}>&#x2c;</div>
             
             <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex`}>key_features:<span className={`${theme === 'dark' ? 'text-[#fad91c]' : 'text-[#DB9D34]'} `}>&nbsp;&#123;</span></div>
             <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex flex-col ml-6`}>
-                <div className='flex'>chic_modern_design: "Translating a high-end fashion brand's identity into a web experience"<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
-                <div className='flex'>dynamic_portfolios: "Showcasing model profiles with responsive image galleries"<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
-                <div className='flex'>intuitive_navigation: "Clean and logical pathways for users to explore talent and services"<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
-                <div className='flex'>cross_browser_compatibility: "Ensuring consistent visuals and functionality across different browsers"</div>
+                <div className='flex'>chic_modern_design:&nbsp;&apos;Translating a high-end fashion brand&apos;s identity into a web experience&apos;<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
+                <div className='flex'>dynamic_portfolios:&nbsp;&apos;Showcasing model profiles with responsive image galleries&apos;<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
+                <div className='flex'>intuitive_navigation:&nbsp;&apos;Clean and logical pathways for users to explore talent and services&apos;<div className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</div></div>
+                <div className='flex'>cross_browser_compatibility:&nbsp;&apos;Ensuring consistent visuals and functionality across different browsers&apos;</div>
             </div>
             <div className={`${theme === 'dark' ? 'text-[#fad91c]' : 'text-[#DB9D34]'} text-start ml-2`}>&nbsp;&#125;<span className={`${theme === 'dark' ? 'text-stone-200' : 'text-gray-700'}`}>&#x2c;</span></div>
 
