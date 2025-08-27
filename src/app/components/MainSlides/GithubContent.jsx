@@ -90,8 +90,10 @@ function GithubContent({ theme }) {
                             <div className={`font-semibold `}>Tian</div>
                             <div className={`text-sm2 px-8 leading-3 ${theme==="dark" ? `text-gray-300` : 'text-gray-700'}`}>Photographer turned coder.</div>
                             <div className={`flex space-x-1.5 text-center text-gray-900 text-sm2 pt-2 justify-center `}>
-                                <div className={`${buttonCSS}`}>follow</div>
-                                <div className={`${buttonCSS}`} onClick={handleLaunchFireworks}>hire</div>
+                                <Link href="https://github.com/tianxiaozhang1/" target="_blank" rel="noopener noreferrer">                                
+                                    <div className={`${buttonCSS}`}>Profile</div>
+                                </Link>
+                                <div className={`${buttonCSS}`} onClick={handleLaunchFireworks}>Hire</div>
                             </div>
                             <div className='flex justify-center pt-2 space-x-2'>
                                 <UserRound className={`h-5 w-5 ${theme==="dark" ? `text-gray-400 hover:text-[#FAC03D]` : 'text-gray-500 hover:text-[#DB9B34]'} cursor-pointer`} />
@@ -108,7 +110,7 @@ function GithubContent({ theme }) {
                                     <LinkIcon className={`h-4 w-4 hover:text-[#FAC03D] ${theme==="dark" ? `text-gray-400` : 'text-gray-500'} mt-0.5 mr-2`} />
                                     tianphoto.ca
                                 </Link>
-                                <Link href="https://tianphoto.ca" target="_blank" rel="noopener noreferrer"
+                                <Link href="https://www.instagram.com/tianxiaozhang" target="_blank" rel="noopener noreferrer"
                                     className={`hover:underline flex space-x-1`}>
                                     <IGLucide size={`h-4 w-4 hover:text-[#FAC03D] ${theme==="dark" ? `text-gray-400` : 'text-gray-500'} mt-0.5 mr-2`} />
                                     @tianxiaozhang

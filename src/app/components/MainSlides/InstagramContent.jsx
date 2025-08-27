@@ -2,7 +2,7 @@ import React, { useState } from 'react'; // Import useState
 import Image from 'next/image';
 import Link from 'next/link';
 import localFont from 'next/font/local';
-import { Plus as PlusIcon, LayoutGrid, Tag, Grid3X3Icon, SquareUser, ChevronDown } from 'lucide-react'; // Added LayoutGrid and Tag icons
+import { Plus as PlusIcon, LayoutGrid, Tag, Grid3X3Icon, SquareUser, ChevronDown, Link as LinkIcon } from 'lucide-react'; // Added LayoutGrid and Tag icons
 
 // Import the FireworksEffect component
 import FireworksEffect from './FireworksEffect'; // Adjust path if necessary
@@ -29,7 +29,7 @@ const taggedInstagramPosts = [
 
 
 function InstagramContent({ theme }) {
-    const buttonCSS = `${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-slate-500` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-xs`;
+    const buttonCSS = `flex items-center ${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-slate-500` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-xs`;
     const baseButtonFollowingCSS = `${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400` : 'bg-slate-100 text-gray-700 border-gray-300'} rounded-lg px-3 text-xs`;
     
 
@@ -92,8 +92,9 @@ function InstagramContent({ theme }) {
                                     <>Following</>
                                 ) : "Follow"}
                             </button>
-                            
-                            <button className={`${buttonCSS} ml-2`}>Message</button>
+                            <Link href="https://www.instagram.com/tianxiaozhang" target="_blank" rel="noopener noreferrer" className={`${buttonCSS} ml-2`}>
+                                <button>Profile</button>
+                            </Link>
                         </div>
                         <div className='flex w-full space-x-4 my-1 text-sm'>
                             <div className='flex'><div className='font-semibold'>1112</div><div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>&nbsp;posts</div></div>
@@ -104,8 +105,9 @@ function InstagramContent({ theme }) {
                             <div className='font-semibold'>Tian</div>
                             <div className=''>Coder & photographer.</div>
                             <Link href="https://tianphoto.ca" target="_blank" rel="noopener noreferrer"
-                                className={`font-semibold ${theme === 'dark' ? 'text-[#9cc0ee]' : 'text-[#11386a]'} hover:underline`}>
-                                tianphoto.ca
+                                className={`font-semibold ${theme === 'dark' ? 'text-[#9cc0ee]' : 'text-[#11386a]'}  flex mt-0.25`}>
+                                <LinkIcon className={`h-3 w-3 ${theme==="dark" ? `text-gray-400` : 'text-gray-500'} mt-0.5 mr-0.5`} />
+                                &nbsp;<div className='hover:underline'>tianphoto.ca</div>
                             </Link>
                         </div>
                     </div>
