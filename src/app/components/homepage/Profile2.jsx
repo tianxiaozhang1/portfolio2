@@ -706,7 +706,7 @@ function Profile2() {
                         <div className={`${footerIconClass}`}><ErrorIcon/></div>
                         <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
                         <div className={`${footerIconClass}`}><WarningIcon/></div>
-                        <div the={`${footerIconClass}`}>0</div>
+                        <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
                     </div>
                 </div>
 
