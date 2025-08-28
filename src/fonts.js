@@ -1,4 +1,4 @@
-import { Inter, Cinzel, Aldrich, Tektur, Playfair_Display, Roboto, Patua_One, Source_Code_Pro, PT_Sans_Narrow, Orbitron } from 'next/font/google';
+import { Inter, Cinzel, Aldrich, Tektur, Playfair_Display, Roboto, Patua_One, Source_Code_Pro, PT_Sans_Narrow, Orbitron, Pixelify_Sans } from 'next/font/google';
 
 export const inter = Inter({
     subsets: ['latin'],
@@ -51,6 +51,12 @@ export const pt_sans_narrow = PT_Sans_Narrow({
 })
 
 export const orbitron = Orbitron({
+  weight: ['400', '600'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+
+export const pixelify_sans = Pixelify_Sans({
   weight: ['400', '600'],
   subsets: ['latin'],
   display: 'swap',

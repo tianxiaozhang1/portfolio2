@@ -10,6 +10,11 @@ import Tianphoto from '../MainSlides/Tianphoto';
 import DefaultContent from '../MainSlides/DefaultContent';
 import BurgerShackContent from '../MainSlides/BurgerShackContent';
 import NowModelsContent from '../MainSlides/NowModelsContent';
+import MinesweeperContent from '../MainSlides/MinesweeperContent';
+import FreeCellContent from '../MainSlides/FreeCellContent';
+import SudokuContent from '../MainSlides/SudokuContent';
+import PathfinderContent from '../MainSlides/PathfinderContent';
+import SortingContent from '../MainSlides/SortingContent';
 import InstagramContent from '../MainSlides/InstagramContent';
 import GithubContent from '../MainSlides/GithubContent';
 
@@ -29,6 +34,41 @@ const projectDetails = {
         type: 'project',
         content: (theme) => <NowModelsContent theme={theme} />, // Using the new component
         showLineNumbers: true, // Explicitly show for code-like project content
+    },
+    'minesweeper': {
+        type: 'game',
+        content: (theme) => (
+            <div><MinesweeperContent theme={theme} /></div>
+        ),
+        showLineNumbers: false, 
+    },
+    'freecell': {
+        type: 'game',
+        content: (theme) => (
+            <div><FreeCellContent theme={theme} /></div>
+        ),
+        showLineNumbers: false, 
+    },
+    'sudoku': {
+        type: 'game',
+        content: (theme) => (
+            <div><SudokuContent theme={theme} /></div>
+        ),
+        showLineNumbers: false, 
+    },
+    'pathfinder': {
+        type: 'game',
+        content: (theme) => (
+            <div><PathfinderContent theme={theme} /></div>
+        ),
+        showLineNumbers: false, 
+    },
+    'sorting': {
+        type: 'game',
+        content: (theme) => (
+            <div><SortingContent theme={theme} /></div>
+        ),
+        showLineNumbers: false, 
     },
     'tianphoto': {
         type: 'project',

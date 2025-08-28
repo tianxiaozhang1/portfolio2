@@ -76,7 +76,7 @@ function Contact({ theme }) {
     const inputStyles = `${theme === "dark" ? `bg-[#3c3c3c] text-gray-200` : `bg-gray-200 text-gray-800`} rounded-sm  border border-transparent focus:outline-none focus:border-[#0066a3] px-2 py-1 w-full`;
 
     // Define the style for the form button
-    const buttonStyles = `${theme === 'dark' ? `bg-[#37373d] text-white` : `bg-gray-200 text-gray-800` }   text-sm2 py-1.5 px-3 rounded hover:bg-[#0066a3] hover:text-white transition w-full`
+    const buttonStyles = `${theme === 'dark' ? `bg-[#37373d] text-white` : `bg-gray-200 text-gray-800` } text-sm2 py-1.5 px-3 rounded hover:bg-[#0066a3] hover:text-white transition w-full`
     // bg-[#007acc] BLUE hover:bg-[#4a4a4f] GREY
     const textColorClass = theme === 'dark' ? 'text-stone-200' : 'text-gray-700';
     const linkColorClass = theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700';

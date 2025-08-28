@@ -39,7 +39,7 @@ import Beethoven from '../../../../public/beethoven.jpg'
 import FireworksEffect from './FireworksEffect'
 
 function GithubContent({ theme }) {
-    const buttonCSS = `${theme==="dark" ? `bg-gray-600 text-gray-200 border-gray-400 hover:bg-gray-700` : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-gray-100'} cursor-pointer w-16 rounded-md border-1 px-2`
+    const buttonCSS = `${theme==="dark" ? `bg-gray-600 text-gray-200 border-gray-400 hover:bg-[#0066a3]` : 'bg-gray-50 text-gray-700 border-gray-300 hover:bg-[#0066a3] hover:text-white'} cursor-pointer w-16 rounded-md border-1 px-2`
     const emailParts = ['tian', 'xiao', 'zhang', '@', 'gmail', '.', 'com'];
     const handleEmailCopy = () => {
         copyToClipboard(emailParts.join(''), setEmailCopyStatus);

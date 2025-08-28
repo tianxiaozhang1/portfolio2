@@ -17,7 +17,7 @@ import Beethoven from '../../../../public/beethoven.jpg'
 const defaultInstagramPosts = [
     P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage,
     P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage,
-    P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage,
+    // P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage, P1, LeftImage,
 ];
 
 // Placeholder for tagged images - you can replace these with actual paths later
@@ -29,7 +29,7 @@ const taggedInstagramPosts = [
 
 
 function InstagramContent({ theme }) {
-    const buttonCSS = `flex items-center ${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-slate-500` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-xs`;
+    const buttonCSS = `flex items-center ${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-[#0066a3]` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-xs`;
     const baseButtonFollowingCSS = `${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400` : 'bg-slate-100 text-gray-700 border-gray-300'} rounded-lg px-3 text-xs`;
     
 
