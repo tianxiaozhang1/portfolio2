@@ -36,8 +36,13 @@ function SortingContent({theme}) {
             </div>
             
             <div className={`mt-2 space-y-1 ${selawkReg.className}`}>
-                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>Playing is simple. The game begins with a full deck of 52 playing cards randomly assigned into 8 cascades. Above those, there are four open/"free" cells on the left and four (initially) empty foundations on the right. The player shall arrange the cards into the four foundations corresponding to the four suits, in order of rank. Only a sequence of cards with alternating colours and downwardly continuous ranks can be moved among the cascades. Victory is declared upon completion.</div>
-                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>This version doesn't include the "Microsoft 32,000" catalogue (hence each game is just random). An addition is the option of auto-completion (called auto stack in the game) instead of always having it.</div>
+                <p className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>
+                    The four algorithms visualized are: <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>bubble sort</span>,{' '}
+                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>heap sort</span>,{' '}
+                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>merge sort</span>,{' '}
+                    and last but possibly the least (time required), <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>quick sort</span>.
+                </p>
+                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>The four algorithms are different in efficiency but the clock rates are calibrated so that they appear to reach a sorted array in roughly the same amount of time for better viewing pleasure. At the same time, the advantage of the latter two algorithms should be easily noticeable.</div>
             </div>
 
 
