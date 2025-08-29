@@ -53,9 +53,10 @@ function Profile2() {
     // State for folder/file folding
     const [portfolioOpen, setPortfolioOpen] = useState(true);
     const [websitesOpen, setWebsitesOpen] = useState(true);
+    const [websiteDesignOpen, setWebsiteDesignOpen] = useState(true); // New state for Website Design category
     const [gamesOpen, setGamesOpen] = useState(true);
     const [algorithmsOpen, setAlgorithmsOpen] = useState(true);
-    const [websiteOpen, setWebsiteOpen] = useState(true);
+    const [photographyOpen, setPhotographyOpen] = useState(true); // Renamed from websiteOpen for clarity
     const [selectedItem, setSelectedItem] = useState(null); // Keep for explorer selection
 
     // Ref for detecting clicks outside the explorer for selection clearing
@@ -421,6 +422,30 @@ function Profile2() {
                                         <div className='ml-2 flex-grow truncate'>BurgerShack.tsx</div>
                                     </div>
                                     <div
+                                        className={getExplorerListItemClasses('nowmodels', 'file')}
+                                        onClick={(e) => handleItemClick(e, 'nowmodels')}
+                                    >
+                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                        {/* Flex-grow and truncate added here */}
+                                        <div className='ml-2 flex-grow truncate'>NowModels.tsx</div>
+                                    </div>
+                                </>
+                            )}
+
+                            {/* New Website Design Section */}
+                            <div
+                                className={getExplorerListItemClasses('website-design', 'nestedFolder')}
+                                onClick={(e) => handleToggle(e, setWebsiteDesignOpen, 'website-design')}
+                            >
+                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: websiteDesignOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                <VSCDown size="w-5 h-5 mt-0.25" /></div>
+                                {/* Flex-grow and truncate added here */}
+                                <div className='ml-0.5 flex-grow truncate'>website-design</div>
+                            </div>
+                            
+                            {websiteDesignOpen && (
+                                <>
+                                    <div
                                         className={getExplorerListItemClasses('citybank', 'file')}
                                         onClick={(e) => handleItemClick(e, 'citybank')}
                                     >
@@ -444,16 +469,9 @@ function Profile2() {
                                         {/* Flex-grow and truncate added here */}
                                         <div className='ml-2 flex-grow truncate'>VenusJewelery.tsx</div>
                                     </div>
-                                    <div
-                                        className={getExplorerListItemClasses('nowmodels', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'nowmodels')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>NowModels.tsx</div>
-                                    </div>
                                 </>
                             )}
+
 
                             {/* Games Section */}
                             <div
@@ -532,16 +550,16 @@ function Profile2() {
                             {/* Photography Section */}
                             <div
                                 className={getExplorerListItemClasses('photographySection', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setWebsiteOpen, 'photographySection')}
+                                onClick={(e) => handleToggle(e, setPhotographyOpen, 'photographySection')}
                             >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: websiteOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: photographyOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
                                 <VSCDown size="w-5 h-5 mt-0.25" />
                                 </div>
                                 {/* Flex-grow and truncate added here */}
                                 <div className='ml-0.5 flex-grow truncate'>photography</div>
                             </div>
                             
-                            {websiteOpen && (
+                            {photographyOpen && (
                                 <div className='-mt-0.5'>
                                     <div
                                         className={getExplorerListItemClasses('tianphoto', 'file')}

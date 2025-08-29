@@ -12,12 +12,12 @@ function SortingContent({theme}) {
                 <div className={`${vt323.className} w-32 h-32 flex items-center justify-center text-red-800 bg-white uppercase text-4xl`}>
                     <div>
                         <div className='flex'>
-                            <div className='text-[#5594BB]'>S</div>
-                            <div className='text-[#478DB3]'>o</div>
-                            <div className='text-[#3986AA]'>r</div>
-                            <div className='text-[#2A80A1]'>t</div>
-                            <div className='text-[#1C7999]'>i</div>
-                            <div className='text-[#0E7290]'>n</div>
+                            <div className='text-[#88ACDA]'>S</div>
+                            <div className='text-[#72A1CD]'>o</div>
+                            <div className='text-[#5594BB]'>r</div>
+                            <div className='text-[#408AAE]'>t</div>
+                            <div className='text-[#2A80A1]'>i</div>
+                            <div className='text-[#157694]'>n</div>
                             <div className='text-[#006C88]'>g</div>
                         </div>
                     </div>
@@ -37,10 +37,10 @@ function SortingContent({theme}) {
             
             <div className={`mt-2 space-y-1 ${selawkReg.className}`}>
                 <p className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>
-                    The four algorithms visualized are: <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>bubble sort</span>,{' '}
-                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>heap sort</span>,{' '}
-                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>merge sort</span>,{' '}
-                    and last but possibly the least (time required), <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'}`}>quick sort</span>.
+                    The four algorithms visualized are: <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline cursor-pointer`}>bubble sort</span>,{' '}
+                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline cursor-pointer`}>heap sort</span>,{' '}
+                    <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline cursor-pointer`}>merge sort</span>,{' '}
+                    and last but possibly the least (time required), <span className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700 '} hover:underline cursor-pointer`}>quick sort</span>.
                 </p>
                 <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-700'}`}>The four algorithms are different in efficiency but the clock rates are calibrated so that they appear to reach a sorted array in roughly the same amount of time for better viewing pleasure. At the same time, the advantage of the latter two algorithms should be easily noticeable.</div>
             </div>

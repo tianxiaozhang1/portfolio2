@@ -141,7 +141,7 @@ function GithubContent({ theme }) {
                             <div className={`${theme==="dark" ? `bg-gray-50` : 'bg-gray-900' } p-0.5 rounded-md`}><Image src={TailwindLogo} alt="Tailwind Logo" className='w-10 h-10' /></div>
                             <div className='flex items-center bg-white rounded-md'><Image src={MongoDBLogo} alt="MongoDB Logo" className='h-10 w-10' /></div>
                             <div><Image src={StripeLogo} alt="Stripe Logo" className='h-10 w-10 rounded-md' /></div>
-                            <div><Image src={FigmaLogo} alt="Neon Logo" className='h-10 w-10' /></div>
+                            <div><Image src={FigmaLogo} alt="Figma Logo" className='h-10 w-10' /></div>
                             <div className={`bg-white rounded-sm`}><Image src={ReduxLogo} alt="ChatGPT Logo" className='h-10 w-10' /></div>
                             <div className={`bg-white rounded-md`}><Image src={ChatGPTLogo} alt="ChatGPT Logo" className='h-10 w-10' /></div>
                             <div className={`${theme==="dark" ? `bg-gray-50` : 'bg-gray-50' } rounded-md`}><Image src={GeminiLogo} alt="Gemini Logo" className='h-10 w-10' /></div>

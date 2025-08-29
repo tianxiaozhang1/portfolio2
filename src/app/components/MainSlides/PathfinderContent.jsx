@@ -12,17 +12,17 @@ function PathfinderContent({theme}) {
                 <div className={`${vt323.className} w-32 h-32 flex items-center text-center leading-6 justify-center text-red-500 bg-white uppercase text-4xl`}>
                     <div>
                         <div className='flex'>
-                            <div className='text-[#AECE32]'>P</div>
-                            <div className='text-[#9FC333]'>a</div>
-                            <div className='text-[#91B935]'>t</div>
-                            <div className='text-[#82AE36]'>h</div>
+                            <div className='text-[#d24834]'>P</div>
+                            <div className='text-[#c65656]'>a</div>
+                            <div className='text-[#ba6478]'>t</div>
+                            <div className='text-[#af729a]'>h</div>
                         </div>
                         <div className='flex'>
-                            <div className='text-[#73A337]'>f</div>
-                            <div className='text-[#649838]'>i</div>
-                            <div className='text-[#568E3A]'>n</div>
-                            <div className='text-[#47833B]'>d</div>
-                            <div className='text-[#38783C]'>e</div>
+                            <div className='text-[#98BE34]'>f</div>
+                            <div className='text-[#82AE36]'>i</div>
+                            <div className='text-[#6C9E38]'>n</div>
+                            <div className='text-[#568E3A]'>d</div>
+                            <div className='text-[#407E3C]'>e</div>
                             <div className='text-[#2A6E3E]'>r</div>
                         </div>
                     </div>
