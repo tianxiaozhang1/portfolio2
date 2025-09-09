@@ -41,6 +41,8 @@ import {
 // Import the new ProjectDisplay component
 import ProjectDisplay from './ProjectDisplay';
 
+import MobileProfile from './MobileProfile'
+
 const numberList = [1,2,3,4,5,6,7,8,9,10,11,12,13,14]
 
 function Profile2() {
@@ -101,7 +103,6 @@ function Profile2() {
 
     // New state to control selected icon in the left column
     const [selectedIcon, setSelectedIcon] = useState('user'); // Default selected icon is 'user'
-
 
     const checkMarkColorClass = theme === 'dark' ? 'text-[#4dd08a]' : 'text-green-600';
     const footerIconClass = `${theme === 'dark' ? 'text-white' : 'text-white'}`
@@ -338,415 +339,422 @@ function Profile2() {
         }
     };
 
-
     return (
-        <div className='shadow-[0_10px_10px_rgba(0,0,0,0.15)]'>
-            
-            {/* DESKTOP HEADER */}
-            <div className={`h-11 w-full text-sm cursor-default flex items-center justify-between px-2 
-                            ${theme === 'dark' ? 'bg-[#3c3c3c] text-stone-200' : 'bg-[#dddddd] text-gray-800'}`}>
-                <div></div>
-                <div className={`border-1 px-26 rounded-lg py-1 flex
-                                ${theme === 'dark' ? 'bg-[#464646] border-[#616161]' : 'bg-[#d2d2d2] border-[#b2b2b2]'}`}>
-                    <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-[#808080]'}`}><UserIcon strokeWidth='2' className='w-5 h-5'  /></div>
-                    <div className='ml-1.5'>tianxiao_zhang - full_stack_developer</div>                    
-                </div>
-                {/* Theme Switcher */}
-                <div 
-                    className={` right-4 top-2.5 cursor-pointer p-1 rounded-md transition-colors duration-200
-                                ${theme === 'dark' ? 'text-gray-100 hover:text-gray-800 hover:bg-[#fac03d]' : 'text-[#4e4e4e]  hover:text-white hover:bg-[#3271ae]'}`}
-                    onClick={toggleTheme}
-                >
-                    {theme === 'dark' ? <SunIcon size={20} /> : <MoonIcon size={20} />}
-                </div>
+        <div className='md:shadow-[0_10px_10px_rgba(0,0,0,0.15)]'>
+
+            {/* MOBILE */}
+            <div className='lg:hidden w-full '>
+                <MobileProfile/>
             </div>
 
-            {/* Main content area (flex container for sidebars and main content) */}
-            <div className={`hidden md:flex lg:w-222 lg:h-134 xl:w-280 xl:h-138 overflow-hidden text-center 
-                            ${theme === 'dark' ? 'bg-white' : 'bg-gray-100'}`}> {/* Adjusted background for light theme */}
-                <div className='w-full h-full flex'>
-                    {/* ICONS Column (fixed width) */}
-                    <div className={`w-14 flex-shrink-0 h-full ${inter.className} z-20
-                                    ${theme === 'dark' ? 'bg-[#333333]' : 'bg-[#dedede]'}`}>
-                        <div className={getIconColumnClasses('user')} onClick={() => handleLeftIconClick('user')}><UserIcon className='w-8 h-8' theme={theme}/></div>
-                        {/* Consolidated contact icon - removed explicit size/strokeWidth for a more default/traditional look */}
-                        <div className={getIconColumnClasses('github')} onClick={() => handleLeftIconClick('github')}><GithubTwo className='w-12 h-12'/></div>  
-                        <div className={getIconColumnClasses('instagram')} onClick={() => handleLeftIconClick('instagram')}><IGLucide size="w-10 h-10" /></div>
-                        <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className="w-9 h-9" strokeWidth={1.5} /></div>                    
+            {/* DESKTOP */}
+            <div className='hidden lg:block'>            
+                {/* DESKTOP HEADER */}
+                <div className={`h-11 w-full text-sm cursor-default flex items-center justify-between px-2 
+                                ${theme === 'dark' ? 'bg-[#3c3c3c] text-stone-200' : 'bg-[#dddddd] text-gray-800'}`}>
+                    <div></div>
+                    <div className={`border-1 px-26 rounded-lg py-1 flex
+                                    ${theme === 'dark' ? 'bg-[#464646] border-[#616161]' : 'bg-[#d2d2d2] border-[#b2b2b2]'}`}>
+                        <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-[#808080]'}`}><UserIcon strokeWidth='2' className='w-5 h-5'  /></div>
+                        <div className='ml-1.5'>tianxiao_zhang - full_stack_developer</div>                    
                     </div>
-                    
-                    {/* PROJECTS Column (resizable width) */}
-                    <div
-                        ref={explorerContainerRef}
-                        style={{ width: `${explorerWidth}px` }}
-                        className={`z-10 relative flex-shrink-0 ${inter.className}
-                                    ${theme === 'dark' ? 'bg-[#252526]' : 'bg-[#f3f3f3]'}`}
-                        onClick={() => setSelectedItem(null)}                        
+                    {/* Theme Switcher */}
+                    <div 
+                        className={` right-4 top-2.5 cursor-pointer p-1 rounded-md transition-colors duration-200
+                                    ${theme === 'dark' ? 'text-gray-100 hover:text-gray-800 hover:bg-[#fac03d]' : 'text-[#4e4e4e]  hover:text-white hover:bg-[#3271ae]'}`}
+                        onClick={toggleTheme}
                     >
-                        <div className={`text-start text-sm font-light px-6 pt-2.5 cursor-default
-                                        ${theme === 'dark' ? 'text-[#bbbbbb]' : 'text-gray-600'}`}>EXPLORER</div>
-                    
-                        {/* Portfolio Section */}
-                        <div
-                            className={getExplorerListItemClasses('portfolio', 'rootFolder')}
-                            onClick={(e) => handleToggle(e, setPortfolioOpen, 'portfolio')}
-                        >
-                            <div className='transform transition-transform duration-200 ml-0.5' style={{ transform: portfolioOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                            <VSCDown size="w-5 h-5 " />
-                            </div>
-                            {/* Flex-grow and truncate added here */}
-                            <div className='ml-0.5 flex-grow truncate'>PORTFOLIO</div>
-                        </div>
-                    
-                        {portfolioOpen && (
-                        <>
-                            {/* Websites Section */}
-                            <div
-                                className={getExplorerListItemClasses('websites', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setWebsitesOpen, 'websites')}
-                            >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: websitesOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                                <VSCDown size="w-5 h-5 mt-0.25" /></div>
-                                {/* Flex-grow and truncate added here */}
-                                <div className='ml-0.5 flex-grow truncate'>websites</div>
-                            </div>
-                            
-                            {websitesOpen && (
-                                <>
-                                    <div
-                                        className={getExplorerListItemClasses('burgershack', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'burgershack')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>BurgerShack.tsx</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('nowmodels', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'nowmodels')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>NowModels.tsx</div>
-                                    </div>
-                                </>
-                            )}
-
-                            {/* New Website Design Section */}
-                            <div
-                                className={getExplorerListItemClasses('website-design', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setWebsiteDesignOpen, 'website-design')}
-                            >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: websiteDesignOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                                <VSCDown size="w-5 h-5 mt-0.25" /></div>
-                                {/* Flex-grow and truncate added here */}
-                                <div className='ml-0.5 flex-grow truncate'>website-design</div>
-                            </div>
-                            
-                            {websiteDesignOpen && (
-                                <>
-                                    <div
-                                        className={getExplorerListItemClasses('citybank', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'citybank')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>CityBank.tsx</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('momenta', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'momenta')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>Momenta.tsx</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('venusjewelery', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'venusjewelery')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>VenusJewelery.tsx</div>
-                                    </div>
-                                </>
-                            )}
-
-
-                            {/* Games Section */}
-                            <div
-                                className={getExplorerListItemClasses('games', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setGamesOpen, 'games')}
-                            >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: gamesOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                                <VSCDown size="w-5 h-5 mt-0.25" />
-                                </div>
-                                {/* Flex-grow and truncate added here */}
-                                <div className='ml-0.5 flex-grow truncate'>games</div>
-                            </div>
-                            
-                            {gamesOpen && (
-                                <div className='-mt-0.5'>
-                                    <div
-                                        className={getExplorerListItemClasses('minesweeper', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'minesweeper')}
-                                    >
-                                        <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>Minesweeper.tsx</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('freecell', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'freecell')}
-                                    >
-                                        <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>FreeCell.py</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('sudoku', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'sudoku')}
-                                    >
-                                        <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>Sudoku.py</div>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Algorithm Section */}
-                            <div
-                                className={getExplorerListItemClasses('algorithm', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setAlgorithmsOpen, 'algorithm')}
-                            >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: algorithmsOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                                <VSCDown size="w-5 h-5 mt-0.25" />
-                                </div>
-                                {/* Flex-grow and truncate added here */}
-                                <div className='ml-0.5 flex-grow truncate'>algorithm</div>
-                            </div>
-                            
-                            {algorithmsOpen && (
-                                <div className='-mt-0.5'>
-                                    <div
-                                        className={getExplorerListItemClasses('pathfinder', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'pathfinder')}
-                                    >
-                                        <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>Pathfinder.py</div>
-                                    </div>
-                                    <div
-                                        className={getExplorerListItemClasses('sorting', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'sorting')}
-                                    >
-                                        <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>Sorting.py</div>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Photography Section */}
-                            <div
-                                className={getExplorerListItemClasses('photographySection', 'nestedFolder')}
-                                onClick={(e) => handleToggle(e, setPhotographyOpen, 'photographySection')}
-                            >
-                                <div className='transform transition-transform duration-200 ml-5' style={{ transform: photographyOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
-                                <VSCDown size="w-5 h-5 mt-0.25" />
-                                </div>
-                                {/* Flex-grow and truncate added here */}
-                                <div className='ml-0.5 flex-grow truncate'>photography</div>
-                            </div>
-                            
-                            {photographyOpen && (
-                                <div className='-mt-0.5'>
-                                    <div
-                                        className={getExplorerListItemClasses('tianphoto', 'file')}
-                                        onClick={(e) => handleItemClick(e, 'tianphoto')}
-                                    >
-                                        <div className='flex items-center ml-7'><SquareSpaceIcon size="w-3.5 h-3.5" theme={theme} /></div>
-                                        {/* Flex-grow and truncate added here */}
-                                        <div className='ml-2 flex-grow truncate'>tianphoto.ca</div>
-                                    </div>
-                                </div>
-                            )}
-                        </>
-                        )}
+                        {theme === 'dark' ? <SunIcon size={20} /> : <MoonIcon size={20} />}
                     </div>
-                    
-                    {/* Resizer */}
-                    <div
-                        onMouseDown={handleExplorerMouseDown}
-                        className={`w-1 cursor-ew-resize ${isExplorerResizing ? 'bg-[#2f7fd3]' : (theme === 'dark' ? 'bg-[#1e1e1e]' : 'bg-[#f3f3f3]')}`}
-                    ></div>
-                    
-                    {/* MAIN */}
-                    <div ref={mainContentRef} className={`flex-grow min-w-0 flex flex-col ${source_code_pro.className}`}> {/* Added min-w-0 here */}
-                        {/* MAIN TOP - Code Editor Area */}
-                        <div className={`flex flex-grow min-h-[100px] w-full text-base pl-2 pr-2 overflow-y-auto
-                                        ${theme === 'dark' ? 'bg-[#1e1e1e]' : 'bg-[#fcfcfc]'}`}> {/* Adjusted background */}
-                            {/* Render the ProjectDisplay component here */}
-                            <ProjectDisplay activeMainContent={activeMainContent} theme={theme} />
-                        </div>
+                </div>
 
-                        {/* Terminal Resizer Bar */}
+                {/* Main content area (flex container for sidebars and main content) */}
+                <div className={`hidden md:flex lg:w-222 lg:h-134 xl:w-280 xl:h-138 overflow-hidden text-center 
+                                ${theme === 'dark' ? 'bg-white' : 'bg-gray-100'}`}> {/* Adjusted background for light theme */}
+                    <div className='w-full h-full flex'>
+                        {/* ICONS Column (fixed width) */}
+                        <div className={`w-14 flex-shrink-0 h-full ${inter.className} z-20
+                                        ${theme === 'dark' ? 'bg-[#333333]' : 'bg-[#dedede]'}`}>
+                            <div className={getIconColumnClasses('user')} onClick={() => handleLeftIconClick('user')}><UserIcon className='w-8 h-8' theme={theme}/></div>
+                            {/* Consolidated contact icon - removed explicit size/strokeWidth for a more default/traditional look */}
+                            <div className={getIconColumnClasses('github')} onClick={() => handleLeftIconClick('github')}><GithubTwo className='w-12 h-12'/></div>  
+                            <div className={getIconColumnClasses('instagram')} onClick={() => handleLeftIconClick('instagram')}><IGLucide size="w-10 h-10" /></div>
+                            <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className="w-9 h-9" strokeWidth={1.5} /></div>                    
+                        </div>
+                        
+                        {/* PROJECTS Column (resizable width) */}
                         <div
-                            onMouseDown={handleTerminalMouseDown}
-                            className={`h-1 w-full cursor-ns-resize ${isTerminalResizing ? 'bg-[#2f7fd3]' : (theme === 'dark' ? 'bg-[#1e1e1e] border-t-1 border-[#414141]' : 'bg-[#fcfcfc] border-t-1 border-[#a5a5a5]')}`}
+                            ref={explorerContainerRef}
+                            style={{ width: `${explorerWidth}px` }}
+                            className={`z-10 relative flex-shrink-0 ${inter.className}
+                                        ${theme === 'dark' ? 'bg-[#252526]' : 'bg-[#f3f3f3]'}`}
+                            onClick={() => setSelectedItem(null)}                        
+                        >
+                            <div className={`text-start text-sm font-light px-6 pt-2.5 cursor-default
+                                            ${theme === 'dark' ? 'text-[#bbbbbb]' : 'text-gray-600'}`}>EXPLORER</div>
+                        
+                            {/* Portfolio Section */}
+                            <div
+                                className={getExplorerListItemClasses('portfolio', 'rootFolder')}
+                                onClick={(e) => handleToggle(e, setPortfolioOpen, 'portfolio')}
+                            >
+                                <div className='transform transition-transform duration-200 ml-0.5' style={{ transform: portfolioOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                <VSCDown size="w-5 h-5 " />
+                                </div>
+                                {/* Flex-grow and truncate added here */}
+                                <div className='ml-0.5 flex-grow truncate'>PORTFOLIO</div>
+                            </div>
+                        
+                            {portfolioOpen && (
+                            <>
+                                {/* Websites Section */}
+                                <div
+                                    className={getExplorerListItemClasses('websites', 'nestedFolder')}
+                                    onClick={(e) => handleToggle(e, setWebsitesOpen, 'websites')}
+                                >
+                                    <div className='transform transition-transform duration-200 ml-5' style={{ transform: websitesOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                    <VSCDown size="w-5 h-5 mt-0.25" /></div>
+                                    {/* Flex-grow and truncate added here */}
+                                    <div className='ml-0.5 flex-grow truncate'>websites</div>
+                                </div>
+                                
+                                {websitesOpen && (
+                                    <>
+                                        <div
+                                            className={getExplorerListItemClasses('burgershack', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'burgershack')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>BurgerShack.tsx</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('nowmodels', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'nowmodels')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>NowModels.tsx</div>
+                                        </div>
+                                    </>
+                                )}
+
+                                {/* New Website Design Section */}
+                                <div
+                                    className={getExplorerListItemClasses('website-design', 'nestedFolder')}
+                                    onClick={(e) => handleToggle(e, setWebsiteDesignOpen, 'website-design')}
+                                >
+                                    <div className='transform transition-transform duration-200 ml-5' style={{ transform: websiteDesignOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                    <VSCDown size="w-5 h-5 mt-0.25" /></div>
+                                    {/* Flex-grow and truncate added here */}
+                                    <div className='ml-0.5 flex-grow truncate'>website-design</div>
+                                </div>
+                                
+                                {websiteDesignOpen && (
+                                    <>
+                                        <div
+                                            className={getExplorerListItemClasses('citybank', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'citybank')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>CityBank.tsx</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('momenta', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'momenta')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>Momenta.tsx</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('venusjewelery', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'venusjewelery')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>VenusJewelery.tsx</div>
+                                        </div>
+                                    </>
+                                )}
+
+
+                                {/* Games Section */}
+                                <div
+                                    className={getExplorerListItemClasses('games', 'nestedFolder')}
+                                    onClick={(e) => handleToggle(e, setGamesOpen, 'games')}
+                                >
+                                    <div className='transform transition-transform duration-200 ml-5' style={{ transform: gamesOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                    <VSCDown size="w-5 h-5 mt-0.25" />
+                                    </div>
+                                    {/* Flex-grow and truncate added here */}
+                                    <div className='ml-0.5 flex-grow truncate'>games</div>
+                                </div>
+                                
+                                {gamesOpen && (
+                                    <div className='-mt-0.5'>
+                                        <div
+                                            className={getExplorerListItemClasses('minesweeper', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'minesweeper')}
+                                        >
+                                            <div className='flex items-center ml-7'><ReactIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>Minesweeper.tsx</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('freecell', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'freecell')}
+                                        >
+                                            <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>FreeCell.py</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('sudoku', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'sudoku')}
+                                        >
+                                            <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>Sudoku.py</div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Algorithm Section */}
+                                <div
+                                    className={getExplorerListItemClasses('algorithm', 'nestedFolder')}
+                                    onClick={(e) => handleToggle(e, setAlgorithmsOpen, 'algorithm')}
+                                >
+                                    <div className='transform transition-transform duration-200 ml-5' style={{ transform: algorithmsOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                    <VSCDown size="w-5 h-5 mt-0.25" />
+                                    </div>
+                                    {/* Flex-grow and truncate added here */}
+                                    <div className='ml-0.5 flex-grow truncate'>algorithm</div>
+                                </div>
+                                
+                                {algorithmsOpen && (
+                                    <div className='-mt-0.5'>
+                                        <div
+                                            className={getExplorerListItemClasses('pathfinder', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'pathfinder')}
+                                        >
+                                            <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>Pathfinder.py</div>
+                                        </div>
+                                        <div
+                                            className={getExplorerListItemClasses('sorting', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'sorting')}
+                                        >
+                                            <div className='flex items-center ml-7 mr-0.25'><PythonIcon size="w-3 h-3" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>Sorting.py</div>
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* Photography Section */}
+                                <div
+                                    className={getExplorerListItemClasses('photographySection', 'nestedFolder')}
+                                    onClick={(e) => handleToggle(e, setPhotographyOpen, 'photographySection')}
+                                >
+                                    <div className='transform transition-transform duration-200 ml-5' style={{ transform: photographyOpen ? 'rotate(0deg)' : 'rotate(-90deg)' }}>
+                                    <VSCDown size="w-5 h-5 mt-0.25" />
+                                    </div>
+                                    {/* Flex-grow and truncate added here */}
+                                    <div className='ml-0.5 flex-grow truncate'>photography</div>
+                                </div>
+                                
+                                {photographyOpen && (
+                                    <div className='-mt-0.5'>
+                                        <div
+                                            className={getExplorerListItemClasses('tianphoto', 'file')}
+                                            onClick={(e) => handleItemClick(e, 'tianphoto')}
+                                        >
+                                            <div className='flex items-center ml-7'><SquareSpaceIcon size="w-3.5 h-3.5" theme={theme} /></div>
+                                            {/* Flex-grow and truncate added here */}
+                                            <div className='ml-2 flex-grow truncate'>tianphoto.ca</div>
+                                        </div>
+                                    </div>
+                                )}
+                            </>
+                            )}
+                        </div>
+                        
+                        {/* Resizer */}
+                        <div
+                            onMouseDown={handleExplorerMouseDown}
+                            className={`w-1 cursor-ew-resize ${isExplorerResizing ? 'bg-[#2f7fd3]' : (theme === 'dark' ? 'bg-[#1e1e1e]' : 'bg-[#f3f3f3]')}`}
                         ></div>
                         
-                        {/* MAIN BOTTOM - Terminal Area */}
-                        <div 
-                            style={{ height: `${terminalPaneHeight}px` }} 
-                            className={`w-full flex-shrink-0 text-start font-thin pt-0 text-base leading-5 overflow-hidden
-                                        ${theme === 'dark' ? 'bg-[#1e1e1e] text-stone-300' : 'bg-[#fcfcfc] text-gray-800'}`}> {/* Adjusted colors */}
-                            <div className='flex justify-between items-center pt-1.5 pb-2 pl-6'>
-                                {/* LEFT */}
-                                <div className={`pb-0 flex items-end space-x-7 pt-0 ${inter.className}`}>
-                                    <div 
-                                        className={getMainBottomNavLinkClasses('ABOUT')}
-                                        onClick={() => setActiveBottomTab('ABOUT')}
-                                    >
-                                        ABOUT
-                                    </div>
-                                    {/* <div 
-                                        className={getMainBottomNavLinkClasses('SKILLS')}
-                                        onClick={() => setActiveBottomTab('SKILLS')}
-                                    >
-                                        SKILLS
-                                    </div> */}
-                                    <div 
-                                        className={getMainBottomNavLinkClasses('TERMINAL')}
-                                        onClick={() => setActiveBottomTab('TERMINAL')}
-                                    >
-                                        TERMINAL
-                                    </div>
-                                    <div 
-                                        className={getMainBottomNavLinkClasses('CONNECT')}
-                                        onClick={() => setActiveBottomTab('CONNECT')}
-                                    >
-                                        CONNECT
-                                    </div>
-                                </div>
-                                {/* RIGHT */}
-                                <div className='pr-3 text-gray-300  '>
-                                    <div className='flex space-x-1.5 items-center'>
-                                        <div className={`hidden rounded-md overflow-hidden p-0.5 ${theme === 'dark' ? 'hover:bg-[#313232]' : 'hover:bg-gray-200'}`}> {/* Adjusted hover */}
-                                            <div><TerminalPowershell/></div>
-                                            <div className='text-sm ml-1'>node</div>
-                                        </div>
-                                        <div className={`flex rounded-md overflow-hidden ${theme === 'dark' ? 'hover:bg-[#313232]' : 'hover:bg-gray-200'}`}> {/* Adjusted hover */}
-                                            <div className={`p-0.5 -mr-0.5 rounded-md h-full ${theme === 'dark' ? 'hover:bg-[#3e4040]' : 'hover:bg-gray-300 text-gray-500'}`}> {/* Adjusted hover */}
-                                                <VSCAdd/>
-                                            </div>
-                                            <div className={`py-1 p-0.5 -ml-0.5 rounded-md h-full ${theme === 'dark' ? 'hover:bg-[#3e4040]' : 'hover:bg-gray-300 text-gray-500'}`}> {/* Adjusted hover */}
-                                                <VSCDown size="w-4 h-4" />
-                                            </div>
-                                        </div>
-                                        <div className={getMainBottomActionButtonClasses()}><VSCSplit/></div>
-                                        <div className={getMainBottomActionButtonClasses()}><VSCTrash/></div>
-                                        <div className={getMainBottomActionButtonClasses()}><VSCEllipsis/></div>
-                                        <div className={getMainBottomActionButtonClasses()}><VSCUp/></div>
-                                        <div className={getMainBottomActionButtonClasses()}><VSCClose /></div>
-                                    </div>
-                                </div>
+                        {/* MAIN */}
+                        <div ref={mainContentRef} className={`flex-grow min-w-0 flex flex-col ${source_code_pro.className}`}> {/* Added min-w-0 here */}
+                            {/* MAIN TOP - Code Editor Area */}
+                            <div className={`flex flex-grow min-h-[100px] w-full text-base pl-2 pr-2 overflow-y-auto
+                                            ${theme === 'dark' ? 'bg-[#1e1e1e]' : 'bg-[#fcfcfc]'}`}> {/* Adjusted background */}
+                                {/* Render the ProjectDisplay component here */}
+                                <ProjectDisplay activeMainContent={activeMainContent} theme={theme} />
                             </div>
-                            {/* TAB CONTENT */}
-                            <div className='flex h-full'>
-                                {/* LEFT - Content based on active tab */}
-                                <div className={`flex-grow h-full overflow-y-auto w-0`}> 
-                                    <div className={`text-base pl-6 pr-2 ${source_code_pro.className}`}> 
-                                        {activeBottomTab === 'ABOUT' && (
-                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                                                <div className='flex'>&#47;&#47;&nbsp;Hello, my name is Tian.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;I am a passionate Full Stack Developer with a knack for building robust and scalable web applications.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;My focus is on creating intuitive user experiences and efficient backend systems.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Always eager to learn new technologies and solve complex problems.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Seeking opportunities to contribute to innovative projects.</div>
+
+                            {/* Terminal Resizer Bar */}
+                            <div
+                                onMouseDown={handleTerminalMouseDown}
+                                className={`h-1 w-full cursor-ns-resize ${isTerminalResizing ? 'bg-[#2f7fd3]' : (theme === 'dark' ? 'bg-[#1e1e1e] border-t-1 border-[#414141]' : 'bg-[#fcfcfc] border-t-1 border-[#a5a5a5]')}`}
+                            ></div>
+                            
+                            {/* MAIN BOTTOM - Terminal Area */}
+                            <div 
+                                style={{ height: `${terminalPaneHeight}px` }} 
+                                className={`w-full flex-shrink-0 text-start font-thin pt-0 text-base leading-5 overflow-hidden
+                                            ${theme === 'dark' ? 'bg-[#1e1e1e] text-stone-300' : 'bg-[#fcfcfc] text-gray-800'}`}> {/* Adjusted colors */}
+                                <div className='flex justify-between items-center pt-1.5 pb-2 pl-6'>
+                                    {/* LEFT */}
+                                    <div className={`pb-0 flex items-end space-x-7 pt-0 ${inter.className}`}>
+                                        <div 
+                                            className={getMainBottomNavLinkClasses('ABOUT')}
+                                            onClick={() => setActiveBottomTab('ABOUT')}
+                                        >
+                                            ABOUT
+                                        </div>
+                                        {/* <div 
+                                            className={getMainBottomNavLinkClasses('SKILLS')}
+                                            onClick={() => setActiveBottomTab('SKILLS')}
+                                        >
+                                            SKILLS
+                                        </div> */}
+                                        <div 
+                                            className={getMainBottomNavLinkClasses('TERMINAL')}
+                                            onClick={() => setActiveBottomTab('TERMINAL')}
+                                        >
+                                            TERMINAL
+                                        </div>
+                                        <div 
+                                            className={getMainBottomNavLinkClasses('CONNECT')}
+                                            onClick={() => setActiveBottomTab('CONNECT')}
+                                        >
+                                            CONNECT
+                                        </div>
+                                    </div>
+                                    {/* RIGHT */}
+                                    <div className='pr-3 text-gray-300  '>
+                                        <div className='flex space-x-1.5 items-center'>
+                                            <div className={`hidden rounded-md overflow-hidden p-0.5 ${theme === 'dark' ? 'hover:bg-[#313232]' : 'hover:bg-gray-200'}`}> {/* Adjusted hover */}
+                                                <div><TerminalPowershell/></div>
+                                                <div className='text-sm ml-1'>node</div>
                                             </div>
-                                        )}
-                                        {/* {activeBottomTab === 'SKILLS' && (
-                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                                                <div className='flex'>&#47;&#47;&nbsp;React: Proficient in building dynamic SPAs with functional components, hooks, and state management (Redux/Context API).</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Python/Django: Strong in backend development, RESTful API design, ORM, and secure server-side logic.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;Cloud/DevOps: Experienced with AWS services (EC2, S3) and containerization (Docker) for robust deployments.</div>
-                                                <div className='flex'>&#47;&#47;&nbsp;AI Integration: Capable of leveraging LLM APIs and prompt engineering for intelligent features.</div>
+                                            <div className={`flex rounded-md overflow-hidden ${theme === 'dark' ? 'hover:bg-[#313232]' : 'hover:bg-gray-200'}`}> {/* Adjusted hover */}
+                                                <div className={`p-0.5 -mr-0.5 rounded-md h-full ${theme === 'dark' ? 'hover:bg-[#3e4040]' : 'hover:bg-gray-300 text-gray-500'}`}> {/* Adjusted hover */}
+                                                    <VSCAdd/>
+                                                </div>
+                                                <div className={`py-1 p-0.5 -ml-0.5 rounded-md h-full ${theme === 'dark' ? 'hover:bg-[#3e4040]' : 'hover:bg-gray-300 text-gray-500'}`}> {/* Adjusted hover */}
+                                                    <VSCDown size="w-4 h-4" />
+                                                </div>
                                             </div>
-                                        )} */}
-                                        {activeBottomTab === 'TERMINAL' && (
-                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} w-full`}>
-                                                {terminalContent.slice(0, terminalLinesVisible).map((line, index) => (
-                                                    <div key={index} className='flex'>
-                                                        {/* {index > 0 && <CheckMarkIcon size="w-3 h-3 mt-0.5 pt-0.25 mr-2" theme={theme}/>} */}
-                                                        {index > 0 && <CheckMarkIcon size="w-3 h-3 mt-0.5 pt-0.25 mr-2" className={checkMarkColorClass} />}
-                                                        {line}
-                                                    </div>
-                                                ))}
-                                            </div>
-                                        )}
-                                        {activeBottomTab === 'CONNECT' && (
-                                            <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
-                                                <div className='flex'>&#91;Email&#93;&nbsp;<Link target="_blank" href="mailto:tianxiao.zhang@gmail.com" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>tianxiao.zhang@gmail.com</Link></div> {/* Adjusted link color */}
-                                                <div className='flex'>&#91;GitHub&#93;&nbsp;<Link target="_blank" href="https://github.com/tianxiaozhang1/" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>github.com/tianxiaozhang1</Link></div> {/* Adjusted link color */}
-                                                <div className='flex'>&#91;Website&#93;&nbsp;<Link target="_blank" href="https://tianphoto.ca" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>tianphoto.ca</Link></div> {/* Adjusted link color */}
-                                            </div>
-                                        )}
+                                            <div className={getMainBottomActionButtonClasses()}><VSCSplit/></div>
+                                            <div className={getMainBottomActionButtonClasses()}><VSCTrash/></div>
+                                            <div className={getMainBottomActionButtonClasses()}><VSCEllipsis/></div>
+                                            <div className={getMainBottomActionButtonClasses()}><VSCUp/></div>
+                                            <div className={getMainBottomActionButtonClasses()}><VSCClose /></div>
+                                        </div>
                                     </div>
                                 </div>
-                                {/* RIGHT */}
-                                <div className={`w-4 border-l flex-shrink-0
-                                                ${theme === 'dark' ? 'border-[#414141] border-t' : 'border-gray-300 border-t'}`}> {/* Adjusted border colors */}
+                                {/* TAB CONTENT */}
+                                <div className='flex h-full'>
+                                    {/* LEFT - Content based on active tab */}
+                                    <div className={`flex-grow h-full overflow-y-auto w-0`}> 
+                                        <div className={`text-base pl-6 pr-2 ${source_code_pro.className}`}> 
+                                            {activeBottomTab === 'ABOUT' && (
+                                                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
+                                                    <div className='flex'>&#47;&#47;&nbsp;Hello, my name is Tian.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;I am a passionate Full Stack Developer with a knack for building robust and scalable web applications.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;My focus is on creating intuitive user experiences and efficient backend systems.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;Always eager to learn new technologies and solve complex problems.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;Seeking opportunities to contribute to innovative projects.</div>
+                                                </div>
+                                            )}
+                                            {/* {activeBottomTab === 'SKILLS' && (
+                                                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
+                                                    <div className='flex'>&#47;&#47;&nbsp;React: Proficient in building dynamic SPAs with functional components, hooks, and state management (Redux/Context API).</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;Python/Django: Strong in backend development, RESTful API design, ORM, and secure server-side logic.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;Cloud/DevOps: Experienced with AWS services (EC2, S3) and containerization (Docker) for robust deployments.</div>
+                                                    <div className='flex'>&#47;&#47;&nbsp;AI Integration: Capable of leveraging LLM APIs and prompt engineering for intelligent features.</div>
+                                                </div>
+                                            )} */}
+                                            {activeBottomTab === 'TERMINAL' && (
+                                                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-600'} w-full`}>
+                                                    {terminalContent.slice(0, terminalLinesVisible).map((line, index) => (
+                                                        <div key={index} className='flex'>
+                                                            {/* {index > 0 && <CheckMarkIcon size="w-3 h-3 mt-0.5 pt-0.25 mr-2" theme={theme}/>} */}
+                                                            {index > 0 && <CheckMarkIcon size="w-3 h-3 mt-0.5 pt-0.25 mr-2" className={checkMarkColorClass} />}
+                                                            {line}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                            {activeBottomTab === 'CONNECT' && (
+                                                <div className={`${theme === 'dark' ? 'text-stone-300' : 'text-gray-800'} w-full`}>
+                                                    <div className='flex'>&#91;Email&#93;&nbsp;<Link target="_blank" href="mailto:tianxiao.zhang@gmail.com" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>tianxiao.zhang@gmail.com</Link></div> {/* Adjusted link color */}
+                                                    <div className='flex'>&#91;GitHub&#93;&nbsp;<Link target="_blank" href="https://github.com/tianxiaozhang1/" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>github.com/tianxiaozhang1</Link></div> {/* Adjusted link color */}
+                                                    <div className='flex'>&#91;Website&#93;&nbsp;<Link target="_blank" href="https://tianphoto.ca" rel="noopener noreferrer" className={`${theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700'} hover:underline`}>tianphoto.ca</Link></div> {/* Adjusted link color */}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+                                    {/* RIGHT */}
+                                    <div className={`w-4 border-l flex-shrink-0
+                                                    ${theme === 'dark' ? 'border-[#414141] border-t' : 'border-gray-300 border-t'}`}> {/* Adjusted border colors */}
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {/* FOOTER */}
-            <div className={`h-7 w-full flex items-center justify-between
-                            ${theme === 'dark' ? 'bg-[#2d7acb]' : 'bg-[#bf9c46]'}`}> {/* Adjusted background */}
-                <div className='flex items-center'>
-                    <div className={`px-3 h-7 flex items-center cursor-pointer
-                                    ${theme === 'dark' ? 'bg-[#2f815c] hover:bg-[#428e8b]' : 'bg-[#aa8534] hover:bg-[#967120]'}`}> {/* Adjusted colors */}
-                        <div className='text-white'><RemoteIcon/></div>
-                    </div>
-                    <div className={`${getFooterItemClasses()} ml-1 mr-1.5`}>
-                        <div className='text-white'><SourceControlIcon/></div>
-                        <div className={`text-sm2 ml-0.5 ${footerIconClass}`}>main</div>
-                    </div>
-                    <div className={`mx-0.5 flex justify-center items-center cursor-pointer h-7 w-6
-                                    ${theme === 'dark' ? 'hover:bg-[#3b8bd1]' : 'hover:bg-[#ab8932]'}`}> {/* Adjusted hover */}
-                        <div className={`${footerIconClass}`}><SyncIcon/></div>
+                {/* FOOTER */}
+                <div className={`h-7 w-full flex items-center justify-between
+                                ${theme === 'dark' ? 'bg-[#2d7acb]' : 'bg-[#bf9c46]'}`}> {/* Adjusted background */}
+                    <div className='flex items-center'>
+                        <div className={`px-3 h-7 flex items-center cursor-pointer
+                                        ${theme === 'dark' ? 'bg-[#2f815c] hover:bg-[#428e8b]' : 'bg-[#aa8534] hover:bg-[#967120]'}`}> {/* Adjusted colors */}
+                            <div className='text-white'><RemoteIcon/></div>
+                        </div>
+                        <div className={`${getFooterItemClasses()} ml-1 mr-1.5`}>
+                            <div className='text-white'><SourceControlIcon/></div>
+                            <div className={`text-sm2 ml-0.5 ${footerIconClass}`}>main</div>
+                        </div>
+                        <div className={`mx-0.5 flex justify-center items-center cursor-pointer h-7 w-6
+                                        ${theme === 'dark' ? 'hover:bg-[#3b8bd1]' : 'hover:bg-[#ab8932]'}`}> {/* Adjusted hover */}
+                            <div className={`${footerIconClass}`}><SyncIcon/></div>
+                        </div>
+
+                        <div className={`${getFooterItemClasses()} ml-1 pl-1.5 text-sm space-x-1`}>
+                            <div className={`${footerIconClass}`}><ErrorIcon/></div>
+                            <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
+                            <div className={`${footerIconClass}`}><WarningIcon/></div>
+                            <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
+                        </div>
                     </div>
 
-                    <div className={`${getFooterItemClasses()} ml-1 pl-1.5 text-sm space-x-1`}>
-                        <div className={`${footerIconClass}`}><ErrorIcon/></div>
-                        <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
-                        <div className={`${footerIconClass}`}><WarningIcon/></div>
-                        <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>0</div>
-                    </div>
-                </div>
-
-                <div className='pr-1 flex space-x-1'>
-                    <div className={getFooterItemClasses()}>
-                        <div className={`text-sm ml-0.5 ${footerIconClass}`}>&#123;&nbsp;&#125;&nbsp;Typescript JSX</div>
-                    </div>
-                    <div className={getFooterItemClasses()}>
-                        <div className={`text-sm ml-0.5 ${footerIconClass}`}>Spaces: 4</div> 
-                    </div>
-                    <div className={`${getFooterItemClasses()}`}> {/* Special case for pr-2 */}
-                        <div className={`text-sm ml-0.5 ${footerIconClass}`}>UTF-8</div> 
-                    </div>
-                    <div className={`${getFooterItemClasses()} text-sm space-x-1`}>
-                        <div className={`${footerIconClass}`}><BroadcastIcon/></div>
-                        <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>Go Live</div>
-                    </div>
-                    <div className={getFooterItemClasses()}>
-                        <div className={`${footerIconClass}`}><FeedbackIcon/></div>
-                    </div>
-                    <div className={getFooterItemClasses()}>
-                        <div className={`${footerIconClass}`}><BellIcon/></div>
+                    <div className='pr-1 flex space-x-1'>
+                        <div className={getFooterItemClasses()}>
+                            <div className={`text-sm ml-0.5 ${footerIconClass}`}>&#123;&nbsp;&#125;&nbsp;Typescript JSX</div>
+                        </div>
+                        <div className={getFooterItemClasses()}>
+                            <div className={`text-sm ml-0.5 ${footerIconClass}`}>Spaces: 4</div> 
+                        </div>
+                        <div className={`${getFooterItemClasses()}`}> {/* Special case for pr-2 */}
+                            <div className={`text-sm ml-0.5 ${footerIconClass}`}>UTF-8</div> 
+                        </div>
+                        <div className={`${getFooterItemClasses()} text-sm space-x-1`}>
+                            <div className={`${footerIconClass}`}><BroadcastIcon/></div>
+                            <div className={`mx-0.5 ml-0.5 ${footerIconClass}`}>Go Live</div>
+                        </div>
+                        <div className={getFooterItemClasses()}>
+                            <div className={`${footerIconClass}`}><FeedbackIcon/></div>
+                        </div>
+                        <div className={getFooterItemClasses()}>
+                            <div className={`${footerIconClass}`}><BellIcon/></div>
+                        </div>
                     </div>
                 </div>
             </div>

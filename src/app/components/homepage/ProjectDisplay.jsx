@@ -130,18 +130,25 @@ const ProjectDisplay = ({ activeMainContent, theme }) => {
 
     return (
         <>
-            {showLineNumbers && (
-                <div className={`w-8 h-full pl-1 ml-2 pt-1.5 cursor-default flex-shrink-0
-                                ${theme === 'dark' ? 'text-stone-500' : 'text-gray-400'}`}>
-                    {numberList.map((number, i) => (
-                        <div key={i} className='w-full text-right'>{number}</div>
-                    ))}
-                </div>
-            )}
-            <div className={`${showLineNumbers === true ? 'ml-4' : 'ml-0 mt-2' } pt-0.5 mt-1  pl-2 cursor-default flex-grow overflow-y-auto max-w-[842px]
-                            ${theme === 'dark' ? '' : 'text-gray-800'}`}>
-                {/* Use <pre> tag for simple text graphics to preserve whitespace */}
+            {/* MOBILE */}
+            <div className={`md:hidden ${theme === 'dark' ? '' : 'text-gray-800'} h-full`}>
                 {contentToDisplay.content(theme)}
+            </div>
+
+            {/* DESKTOP */}
+            <div className='hidden md:flex w-full'>
+                {showLineNumbers && (
+                    <div className={`w-8 h-full pl-1 ml-2 pt-1.5 cursor-default flex-shrink-0
+                                    ${theme === 'dark' ? 'text-stone-500' : 'text-gray-400'}`}>
+                        {numberList.map((number, i) => (
+                            <div key={i} className='w-full text-right'>{number}</div>
+                        ))}
+                    </div>
+                )}
+                <div className={`${showLineNumbers === true ? 'ml-4' : 'ml-0 mt-2' } pt-0.5 mt-1 pl-2 cursor-default flex-grow overflow-y-auto max-w-[842px]
+                                ${theme === 'dark' ? '' : 'text-gray-800'}`}>
+                    {contentToDisplay.content(theme)}
+                </div>
             </div>
         </>
     );

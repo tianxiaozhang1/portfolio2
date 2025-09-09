@@ -80,67 +80,80 @@ function Contact({ theme }) {
     // bg-[#007acc] BLUE hover:bg-[#4a4a4f] GREY
     const textColorClass = theme === 'dark' ? 'text-stone-200' : 'text-gray-700';
     const linkColorClass = theme === 'dark' ? 'text-[#2f7ed3]' : 'text-blue-700';
-    const buttonClass = `ml-2 px-3 pt-1 pb-1.5 mt-0.5 text-sm2 rounded-md cursor-pointer transition-colors duration-200
+    const buttonClass = `md:ml-2 mt-1 md:mt-0 px-3 pt-1 pb-1.5 mt-0.5 text-sm2 rounded-md cursor-pointer transition-colors duration-200
                             ${theme === 'dark' ? 'bg-[#37373d] hover:bg-[#0066a3] text-white' : 'bg-gray-200 hover:bg-[#0066a3] hover:text-gray-50 text-gray-800'}`;
                             // hover:bg-[#4a4a4f]
     const statusClass = `ml-2 text-xs font-semibold ${theme === 'dark' ? 'text-[#c0d695]' : 'text-[#0066a3]'}`;
     
     return (
-        <div className={`text-start ${selawkReg.className} p-2  rounded-lg`}>
-            {/* The contact info section */}
-            <div className={`${theme === 'dark' ? 'text-[#659849]' : 'text-[#68945c]'} text-start ${source_code_pro.className}`}>
-                &#47;&#47;&nbsp;HELLO AGAIN
-            </div>
-            
-            <div className='flex w-full mt-2'>
-                <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex items-center my-1 w-1/2`}>
-                    <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}><AtSignIcon strokeWidth='1.5' className='w-7 h-7'  /></div>
-                    <span className={`ml-2 ${textColorClass}`}>
-                        {emailParts.map((part, index) => <span key={index}>{part}</span>)}
-                    </span>
-                    <button onClick={handleEmailCopy} className={buttonClass}>Copy</button>
-                    {emailCopyStatus && <span className={statusClass}>{emailCopyStatus}</span>}
-                </div>
+        <div>
+            {/* MOBILE */}
+            {/* <div className='md:hidden'>C</div> */}
 
-                <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} flex items-center ml-2`}>
-                    <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}><PhoneIcon strokeWidth='1.5' className='w-7 h-7'  /></div> 
-                    <span className={`ml-2 ${textColorClass}`}>
-                        {phoneParts.map((part, index) => <span key={index}>{part}</span>)}
-                    </span>
-                    <button onClick={handlePhoneCopy} className={buttonClass}>Copy</button>
-                    {phoneCopyStatus && <span className={statusClass}>{phoneCopyStatus}</span>}
-                </div>
-            </div>
-
-            {/* The new styled form */}
-            <form onSubmit={handleSubmit} className='flex flex-col space-y-2 text-gray-200 mt-2'>
-                <div className='flex space-x-4 w-full'>
-                    <div className='flex flex-col w-1/2'>
-                        <input 
-                            type="text" id="name" name="name" className={inputStyles} placeholder='Name'
-                        />
-                    </div>
-                    <div className='flex flex-col w-1/2'>
-                        <input 
-                            type="email" id="email" name="email" className={inputStyles} placeholder='Email' required 
-                        />
-                    </div>
-                </div>
-
-                <div className='flex flex-col w-full'>
-                    {/* <label htmlFor="message" className='text-gray-400 text-sm mb-1'>Message:</label> */}
-                    <textarea id="message" name="message" className={`${inputStyles} h-38`} placeholder='Your message...' required />
-                </div>
-
-                <div className='flex justify-center'>
-                    <button type="submit" className={`${buttonStyles}`}>
-                        Send
-                    </button>
+            {/* DESKTOP */}
+            {/* hidden md:block */}
+            <div className={`bg-[#1e1e1e] text-start ${selawkReg.className} p-2 w-full md:rounded-lg`}>
+                {/* The contact info section */}
+                <div className={`${theme === 'dark' ? 'text-[#659849]' : 'text-[#68945c]'} text-start ${source_code_pro.className}`}>
+                    &#47;&#47;&nbsp;HELLO AGAIN
                 </div>
                 
-                {status === 'success' && <p className='text-[#659849] text-center mt-0.5'>Thank you for your message!</p>}
-                {status === 'error' && <p className='text-[#b81a35] text-center mt-0.5'>Something went wrong. Please try again.</p>}
-            </form>
+                <div className='md:flex w-full mt-2 mb-4 md:mb-0'>
+                    <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} md:flex items-center my-1 w-1/2`}>
+                        <div className='flex items-center'>
+                            <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}><AtSignIcon strokeWidth='1.5' className='w-7 h-7'  /></div>
+                            <span className={`ml-2 ${textColorClass}`}>
+                                {emailParts.map((part, index) => <span key={index}>{part}</span>)}
+                            </span>
+                        </div>
+                        <button onClick={handleEmailCopy} className={buttonClass}>Copy</button>
+                        {emailCopyStatus && <span className={statusClass}>{emailCopyStatus}</span>}
+                    </div>
+
+                    <div className={`${theme === 'dark' ? 'text-sky-200' : 'text-[#3271AE]'} md:flex items-center md:ml-2`}>
+                        <div className='flex items-center'>
+                            <div className={`${theme === 'dark' ? 'text-gray-400' : 'text-gray-500'}`}><PhoneIcon strokeWidth='1.5' className='w-7 h-7'  /></div> 
+                            <span className={`ml-2 ${textColorClass}`}>
+                                {phoneParts.map((part, index) => <span key={index}>{part}</span>)}
+                            </span>
+                        </div>
+                        <button onClick={handlePhoneCopy} className={buttonClass}>Copy</button>
+                        {phoneCopyStatus && <span className={statusClass}>{phoneCopyStatus}</span>}
+                    </div>
+                </div>
+
+                {/* The new styled form */}
+                <form onSubmit={handleSubmit} className='flex flex-col space-y-2 text-gray-200 mt-2'>
+                    <div className='md:flex md:space-x-4 w-full space-y-2 md:space-y-0'>
+                        <div className='flex flex-col w-full md:w-1/2'>
+                            <input 
+                                type="text" id="name" name="name" className={inputStyles} placeholder='Name'
+                            />
+                        </div>
+                        <div className='flex flex-col w-full md:w-1/2'>
+                            <input 
+                                type="email" id="email" name="email" className={inputStyles} placeholder='Email' required 
+                            />
+                        </div>
+                    </div>
+
+                    <div className='flex flex-col w-full'>
+                        {/* <label htmlFor="message" className='text-gray-400 text-sm mb-1'>Message:</label> */}
+                        <textarea id="message" name="message" className={`${inputStyles} h-60 md:h-38`} placeholder='Your message...' required />
+                    </div>
+
+                    <div className='flex justify-center pb-2 md:pb-0'>
+                        <button type="submit" className={`${buttonStyles}`}>
+                            Send
+                        </button>
+                    </div>
+                    
+                    <div className='h-8'>
+                        {status === 'success' && <p className='text-[#659849] text-center mt-0.5'>Thank you for your message!</p>}
+                        {status === 'error' && <p className='text-[#b81a35] text-center mt-0.5'>Something went wrong. Please try again.</p>}
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }

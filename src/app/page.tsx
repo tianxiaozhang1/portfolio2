@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useRef, useState } from 'react';
 
-// import Profile from './components/homepage/Profile';
+import Profile from './components/homepage/Profile';
 import Profile2 from './components/homepage/Profile2';
 import ProjectsHeading from './components/homepage/ProjectsHeading';
 import BurgerShack from './components/homepage/BurgerShack';
@@ -19,7 +19,6 @@ import Sudoku from './components/versiontwo/Sudoku'
 import Pathfinder2 from './components/versiontwo/Pathfinder'
 import Sorting from './components/versiontwo/Sorting'
 // import Sorting2 from './projects/Sorting2';
-
 // import { Oswald } from 'next/font/google';
 // const oswald = Oswald({ subsets: ['latin'], weight: "400" });
 
@@ -133,10 +132,10 @@ export default function Home() {
         {/* This div's background won't be seen if body's background is used, but good as fallback/container */}
         <div style={{ backgroundColor: currentPageBackgroundColor, transition: 'background-color 0.8s ease-in-out' }}>
 
-        <div id="section1" ref={section1Ref} className='flex justify-center items-center mt-0 md:mt-0 h-screen'>
+        <div id="section1" ref={section1Ref} className='flex justify-center items-start md:items-center mt-0 md:mt-0 h-screen'>
           {/* flex */}
             <div>
-            <Profile2 />
+              <Profile2 />
             </div>
           </div>
 

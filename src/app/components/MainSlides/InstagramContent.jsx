@@ -49,10 +49,9 @@ const taggedInstagramPosts = [
     P19, P20, P21, P22, P23, P24, P25, P26, P27, P28, P29, P30,
 ];
 
-
 function InstagramContent({ theme }) {
-    const buttonCSS = `flex items-center ${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-[#0066a3]` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-xs`;
-    const baseButtonFollowingCSS = `${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400` : 'bg-slate-100 text-gray-700 border-gray-300'} rounded-lg px-3 text-xs`;
+    const buttonCSS = `flex items-center ${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400 hover:bg-[#0066a3]` : 'bg-slate-100 text-gray-700 border-gray-300 hover:bg-slate-200'} rounded-lg px-3 text-sm2 md:text-xs w-32 text-center md:w-fit`;
+    const baseButtonFollowingCSS = `${theme==="dark" ? `bg-slate-600 text-gray-100 border-gray-400` : 'bg-slate-100 text-gray-700 border-gray-300'} rounded-lg px-3 text-sm2 md:text-xs`;
     
     const [displayMode, setDisplayMode] = useState('posts'); 
 
@@ -94,90 +93,141 @@ function InstagramContent({ theme }) {
 
 
     const followButtonClasses = isFollowing
-        ? `${baseButtonFollowingCSS} ml-4 flex items-center` 
+        ? `${baseButtonFollowingCSS} md:ml-4 flex items-center px-3 text-sm2 md:text-xs py-1.5 md:py-1.5 w-32 text-center md:w-fit` 
         : theme === "dark"
-            ? `bg-[#615EA8] text-white border-transparent hover:bg-[#4A4B9D] ml-4 flex items-center rounded-lg px-3 text-xs` 
-            : `bg-blue-300 text-blue-900 border-transparent hover:bg-blue-400 ml-4 flex items-center rounded-lg px-3 text-xs`; 
+            ? `bg-[#615EA8] text-white border-transparent hover:bg-[#4A4B9D] md:ml-4 flex items-center rounded-lg px-3 text-sm2 md:text-xs py-1.5 md:py-1.5 w-32 text-center md:w-fit` 
+            : `bg-blue-300 text-blue-900 border-transparent hover:bg-blue-400 md:ml-4 flex items-center rounded-lg px-3 text-sm2 md:text-xs py-1.5 md:py-1.5 w-32 text-center md:w-fit`; 
+
+    const FollowAndProfileButtons = ({ theme }) => {
+        return (
+            <div className='flex mt-2 md:mt-0  font-semibold md:font-normal'>
+                <button 
+                    onClick={handleToggleFollow} // Use the new function here
+                    className={`${followButtonClasses} flex justify-center`}
+                >
+                    {isFollowing ? (
+                        <>Following</>
+                    ) : "Follow"}
+                </button>
+                <Link href="https://www.instagram.com/tianxiaozhang" target="_blank" rel="noopener noreferrer" className={`${buttonCSS} flex justify-center ml-2`}>
+                    <button>Profile</button>
+                </Link>
+            </div>
+        )
+    }
+
+    const BioAndLink = ({ theme }) => {
+        return (
+            <div className=''>
+                <div className=''>Coder & photographer.</div>
+                <Link href="https://tianphoto.ca" target="_blank" rel="noopener noreferrer"
+                    className={`font-semibold ${theme === 'dark' ? 'text-[#9cc0ee]' : 'text-[#11386a]'}  flex mt-0.25`}>
+                    <LinkIcon className={`h-3 w-3 ${theme==="dark" ? `text-gray-400` : 'text-gray-500'} mt-0.5 mr-0.5`} />
+                    &nbsp;<div className='hover:underline'>tianphoto.ca</div>
+                </Link>
+            </div>
+        )
+    }
 
     return (
-        <div className='flex space-x-4 justify-center w-full h-full'>
-            <style>{`
-                .no-scrollbar::-webkit-scrollbar { display: none; }
-                .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-            `}</style>
-            <div className={`w-9/12 h-full flex flex-col ${selawkReg.className} pb-0 overflow-y-auto no-scrollbar relative`}> 
-                
-                <div className='flex w-full h-30 mt-1 flex-shrink-0 pb-2'>
-                    <div className='w-1/3 flex justify-center items-center pt-2'>
-                        <Image src={Beethoven} alt="Beethoven" className='rounded-full h-26 w-26 p-1 border-3 border-pink-500' />
+
+        <div>
+            {/* MOBILE */}
+            {/* <div className='md:hidden'>IG</div> */}
+
+            {/* DESKTOP */}
+            <div className={`flex md:space-x-4 justify-center w-full h-full ${selawkReg.className} ${theme==="dark" ? `bg-[#1e1e1e]` : 'bg-zinc-50'}`}>
+                <style>{`
+                    .no-scrollbar::-webkit-scrollbar { display: none; }
+                    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+                `}</style>
+                <div className={`w-full md:w-9/12 h-full flex flex-col  pb-0 overflow-y-auto no-scrollbar relative`}> 
+                    
+                    <div className='flex w-full md:h-30 mt-1 flex-shrink-0 pb-2'>
+                        <div className='w-1/3 flex justify-center items-center pt-2'>
+                            <Image src={Beethoven} alt="Beethoven" className='rounded-full h-22 w-22 md:h-26 md:w-26 p-1 border-3 border-pink-500' />
+                        </div>
+                        <div className={`w-2/3 ${theme==="dark" ? 'text-gray-200' : 'text-gray-800'} flex flex-col text-center justify-center items-start pl-2 md:pl-0`}>
+                            <div className='md:flex'>
+                                <div className='text-lg hidden md:flex'>tianxiaozhang</div>
+                                <div className='hidden md:block'><FollowAndProfileButtons theme={theme}/></div>
+                            </div>
+                            <div className='font-semibold -mb-2 text-lg md:hidden'>Tian</div>
+                            <div className='flex w-full space-x-4 mb-1 mt-3 md:mt-2 text-sm'>
+                                <div className='md:flex text-start md:text-start leading-3'>
+                                    <div className='font-semibold'>
+                                        1112
+                                    </div>
+                                    <div className='hidden md:flex'>&nbsp;</div>
+                                    <div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>
+                                        posts
+                                    </div>
+                                </div>
+                                <div className='md:flex text-start md:text-start leading-3'>
+                                    <div className='font-semibold'>
+                                        104k
+                                    </div>
+                                    <div className='hidden md:flex'>&nbsp;</div>
+                                    <div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>
+                                        followers
+                                    </div>
+                                </div>
+                                <div className='md:flex text-start md:text-start leading-3'>
+                                    <div className='font-semibold'>
+                                        600
+                                    </div>
+                                    <div className='hidden md:flex'>&nbsp;</div>
+                                    <div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>
+                                        following
+                                    </div>
+                                </div>
+                            </div>
+                            <div className='text-start leading-4 mt-0.5 text-sm hidden md:block'>
+                                <div className='font-semibold'>Tian</div>
+                                <div><BioAndLink theme={theme}/></div>
+                            </div>
+                        </div>
                     </div>
-                    <div className={`w-2/3 ${theme==="dark" ? 'text-gray-200' : 'text-gray-800'} flex flex-col justify-center items-start pl-0`}>
-                        <div className='flex'>
-                            <div className='text-lg '>tianxiaozhang</div>
-                            <button 
-                                onClick={handleToggleFollow} // Use the new function here
-                                className={`${followButtonClasses}`}
-                            >
-                                {isFollowing ? (
-                                    <>Following</>
-                                ) : "Follow"}
-                            </button>
-                            <Link href="https://www.instagram.com/tianxiaozhang" target="_blank" rel="noopener noreferrer" className={`${buttonCSS} ml-2`}>
-                                <button>Profile</button>
-                            </Link>
+
+                    <div className={`md:hidden text-start leading-4 mt-0.5 text-sm pl-5 ${theme==="dark" ? 'text-gray-200' : 'text-gray-800'}`}><BioAndLink theme={theme}/></div>
+                    <div className='md:hidden flex justify-center pb-2'><FollowAndProfileButtons theme={theme}/></div>
+
+                    <div className={`w-full mt-2 flex-grow`}>
+                        <div className={`h-7 mb-1 w-full flex justify-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
+                            <div className='flex justify-between items-center w-2/5 px-2'>
+                                <div 
+                                    className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
+                                                ${displayMode === 'posts' ? (theme === 'dark' ? 'border-white text-gray-100' : ' border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
+                                    onClick={() => setDisplayMode('posts')}
+                                >
+                                    <Grid3X3Icon className='h-6 w-6' />
+                                </div>
+                                <div 
+                                    className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
+                                                ${displayMode === 'tagged' ? (theme === 'dark' ? ' border-white text-gray-100' : 'border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
+                                    onClick={() => setDisplayMode('tagged')}
+                                >
+                                    <SquareUser className='h-6 w-6' />
+                                </div>
+                            </div>
                         </div>
-                        <div className='flex w-full space-x-4 my-1 text-sm'>
-                            <div className='flex'><div className='font-semibold'>1112</div><div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>&nbsp;posts</div></div>
-                            <div className='flex'><div className='font-semibold'>104k</div><div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>&nbsp;followers</div></div>
-                            <div className='flex'><div className='font-semibold'>600</div><div className={`${theme==="dark" ? 'text-gray-300' : 'text-gray-500'}`}>&nbsp;following</div></div>
-                        </div>
-                        <div className='text-start leading-4 mt-0.5 text-sm'>
-                            <div className='font-semibold'>Tian</div>
-                            <div className=''>Coder & photographer.</div>
-                            <Link href="https://tianphoto.ca" target="_blank" rel="noopener noreferrer"
-                                className={`font-semibold ${theme === 'dark' ? 'text-[#9cc0ee]' : 'text-[#11386a]'}  flex mt-0.25`}>
-                                <LinkIcon className={`h-3 w-3 ${theme==="dark" ? `text-gray-400` : 'text-gray-500'} mt-0.5 mr-0.5`} />
-                                &nbsp;<div className='hover:underline'>tianphoto.ca</div>
-                            </Link>
+                        <div className='grid grid-cols-3 gap-1'>
+                            {currentPosts.map((src, index) => (
+                                <Image
+                                    key={index}
+                                    src={src}
+                                    alt={`Instagram Post ${index + 1}`}
+                                    className="w-full h-auto object-cover aspect-square"
+                                    width={150}
+                                    height={150}
+                                />
+                            ))}
                         </div>
                     </div>
+                    
                 </div>
 
-                <div className={`w-full mt-2 flex-grow`}>
-                    <div className={`h-7 mb-1 w-full flex justify-center ${theme === 'dark' ? 'text-gray-400' : 'text-gray-600'}`}>
-                        <div className='flex justify-between items-center w-2/5 px-2'>
-                            <div 
-                                className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
-                                            ${displayMode === 'posts' ? (theme === 'dark' ? 'border-white text-gray-100' : ' border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
-                                onClick={() => setDisplayMode('posts')}
-                            >
-                                <Grid3X3Icon className='h-6 w-6' />
-                            </div>
-                            <div 
-                                className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
-                                            ${displayMode === 'tagged' ? (theme === 'dark' ? ' border-white text-gray-100' : 'border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
-                                onClick={() => setDisplayMode('tagged')}
-                            >
-                                <SquareUser className='h-6 w-6' />
-                            </div>
-                        </div>
-                    </div>
-                    <div className='grid grid-cols-3 gap-1'>
-                        {currentPosts.map((src, index) => (
-                            <Image
-                                key={index}
-                                src={src}
-                                alt={`Instagram Post ${index + 1}`}
-                                className="w-full h-auto object-cover aspect-square"
-                                width={150}
-                                height={150}
-                            />
-                        ))}
-                    </div>
-                </div>
-                
-            </div>
-            {showFireworks && (
+                {showFireworks && (
                     <FireworksEffect 
                         trigger={showFireworks}
                         onComplete={handleFireworksComplete}
@@ -193,6 +243,7 @@ function InstagramContent({ theme }) {
                         }}
                     />
                 )}
+            </div>
         </div>
     );
 }
