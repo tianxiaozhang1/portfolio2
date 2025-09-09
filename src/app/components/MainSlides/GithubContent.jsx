@@ -25,7 +25,7 @@ import TailwindLogo from '../../../../public/logos/Tailwind.svg'
 import StripeLogo from '../../../../public/logos/Stripe.svg'
 import MongoDBLogo from '../../../../public/logos/MongoDB.svg'
 import ReduxLogo from '../../../../public/logos/Redux.svg'
-import FigmaLogo from '../../../../public/logos/Figma.svg'
+import FigmaLogo from '../../../../public/logos/Figma2.svg'
 
 import ChatGPTLogo from '../../../../public/logos/ChatGPTLogo.svg'
 import GeminiLogo from '../../../../public/logos/Gemini.svg'
@@ -127,7 +127,7 @@ function GithubContent({ theme }) {
                 <div className='space-y-2 w-full pr-0'>
                     <div className={`${theme==="dark" ? `bg-zinc-700` : 'bg-zinc-50'} w-full border-1 rounded-lg h-38 text-start pt-2 pl-5 pr-3 ${theme==="dark" ? `border-stone-500 text-gray-300` : `border-stone-400 text-gray-600`}`}>
                         <div className='font-semibold'>Languages and Tools</div>
-                        <div className='flex flex-wrap mt-3 gap-2'>
+                        <div className='flex flex-wrap mt-3 gap-2 items-center'>
                             <div><Image src={PythonLogo} alt="Python Logo" className='w-10 h-10' /></div>
                             <div><Image src={ReactLogo} alt="React Logo" className='h-10 w-10' /></div>
                             <div><Image src={JavaScriptLogo} alt="JavaScriptLogoLogo" className='h-10 w-10 rounded-md' /></div>
@@ -138,10 +138,10 @@ function GithubContent({ theme }) {
                             <div><Image src={FirebaseLogo} alt="Firebase Logo" className='h-10 w-10' /></div>
 
                             <div><Image src={GitLogo} alt="Nodejs Logo" className='h-10 w-10' /></div>
-                            <div className={`${theme==="dark" ? `bg-gray-50` : 'bg-gray-900' } p-0.5 rounded-md`}><Image src={TailwindLogo} alt="Tailwind Logo" className='w-10 h-10' /></div>
+                            <div className={`${theme==="dark" ? `bg-gray-50` : 'bg-gray-800' } p-0.5 rounded-md`}><Image src={TailwindLogo} alt="Tailwind Logo" className='w-10 h-10' /></div>
                             <div className='flex items-center bg-white rounded-md'><Image src={MongoDBLogo} alt="MongoDB Logo" className='h-10 w-10' /></div>
                             <div><Image src={StripeLogo} alt="Stripe Logo" className='h-10 w-10 rounded-md' /></div>
-                            <div><Image src={FigmaLogo} alt="Figma Logo" className='h-10 w-10' /></div>
+                            <div><Image src={FigmaLogo} alt="Figma Logo" className={`h-10 w-10 p-0.5  ${theme==="dark" ? `bg-gray-50` : 'bg-gray-800' } rounded-md`} /></div>
                             <div className={`bg-white rounded-sm`}><Image src={ReduxLogo} alt="ChatGPT Logo" className='h-10 w-10' /></div>
                             <div className={`bg-white rounded-md`}><Image src={ChatGPTLogo} alt="ChatGPT Logo" className='h-10 w-10' /></div>
                             <div className={`${theme==="dark" ? `bg-gray-50` : 'bg-gray-50' } rounded-md`}><Image src={GeminiLogo} alt="Gemini Logo" className='h-10 w-10' /></div>

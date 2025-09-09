@@ -9,7 +9,10 @@ import Contact from '../MainSlides/Contact';
 import Tianphoto from '../MainSlides/Tianphoto';
 import DefaultContent from '../MainSlides/DefaultContent';
 import BurgerShackContent from '../MainSlides/BurgerShackContent';
+import VenusJeweleryContent from '../MainSlides/VenusJeweleryContent';
 import NowModelsContent from '../MainSlides/NowModelsContent';
+import MomentaContent from '../MainSlides/MomentaContent';
+import CityBankContent from '../MainSlides/CityBankContent';
 import MinesweeperContent from '../MainSlides/MinesweeperContent';
 import FreeCellContent from '../MainSlides/FreeCellContent';
 import SudokuContent from '../MainSlides/SudokuContent';
@@ -28,12 +31,27 @@ const projectDetails = {
     'burgershack': {
         type: 'project',
         content: (theme) => <BurgerShackContent theme={theme} />, // Using the new component
-        showLineNumbers: true, // Explicitly show for code-like project content
+        showLineNumbers: false, // Explicitly show for code-like project content
     },
     'nowmodels': {
         type: 'project',
         content: (theme) => <NowModelsContent theme={theme} />, // Using the new component
-        showLineNumbers: true, // Explicitly show for code-like project content
+        showLineNumbers: false, // Explicitly show for code-like project content
+    },
+    'momenta': {
+        type: 'project',
+        content: (theme) => <MomentaContent theme={theme} />, // Using the new component
+        showLineNumbers: false, // Explicitly show for code-like project content
+    },
+    'citybank': {
+        type: 'project',
+        content: (theme) => <CityBankContent theme={theme} />, // Using the new component
+        showLineNumbers: false, // Explicitly show for code-like project content
+    },
+    'venusjewelery': {
+        type: 'project',
+        content: (theme) => <VenusJeweleryContent theme={theme} />, // Using the new component
+        showLineNumbers: false, // Explicitly show for code-like project content
     },
     'minesweeper': {
         type: 'game',

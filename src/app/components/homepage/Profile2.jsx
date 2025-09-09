@@ -370,9 +370,9 @@ function Profile2() {
                                     ${theme === 'dark' ? 'bg-[#333333]' : 'bg-[#dedede]'}`}>
                         <div className={getIconColumnClasses('user')} onClick={() => handleLeftIconClick('user')}><UserIcon className='w-8 h-8' theme={theme}/></div>
                         {/* Consolidated contact icon - removed explicit size/strokeWidth for a more default/traditional look */}
-                        <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className="w-9 h-9" strokeWidth={1.5} /></div>                        
+                        <div className={getIconColumnClasses('github')} onClick={() => handleLeftIconClick('github')}><GithubTwo className='w-12 h-12'/></div>  
                         <div className={getIconColumnClasses('instagram')} onClick={() => handleLeftIconClick('instagram')}><IGLucide size="w-10 h-10" /></div>
-                        <div className={getIconColumnClasses('github')} onClick={() => handleLeftIconClick('github')}><GithubTwo className='w-12 h-12'/></div>                        
+                        <div className={getIconColumnClasses('phone_contact')} onClick={() => handleLeftIconClick('phone_contact')}><Phone className="w-9 h-9" strokeWidth={1.5} /></div>                    
                     </div>
                     
                     {/* PROJECTS Column (resizable width) */}
