@@ -134,7 +134,7 @@ export default function Home() {
 
         <div id="section1" ref={section1Ref} className='flex justify-center items-start md:items-center mt-0 md:mt-0 h-screen'>
           {/* flex */}
-            <div>
+            <div className=''>
               <Profile2 />
             </div>
           </div>

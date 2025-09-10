@@ -137,10 +137,9 @@ function InstagramContent({ theme }) {
 
             {/* DESKTOP */}
             <div className={`flex md:space-x-4 justify-center w-full h-full ${selawkReg.className} ${theme==="dark" ? `bg-[#1e1e1e]` : 'bg-zinc-50'}`}>
-                <style>{`
-                    .no-scrollbar::-webkit-scrollbar { display: none; }
-                    .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-                `}</style>
+                 {/* The CSS to hide the scrollbar should be placed in a global stylesheet,
+                     such as `app/globals.css`, to ensure it is applied consistently.
+                 */}
                 <div className={`w-full md:w-9/12 h-full flex flex-col  pb-0 overflow-y-auto no-scrollbar relative`}> 
                     
                     <div className='flex w-full md:h-30 mt-1 flex-shrink-0 pb-2'>
@@ -197,14 +196,14 @@ function InstagramContent({ theme }) {
                             <div className='flex justify-between items-center w-2/5 px-2'>
                                 <div 
                                     className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
-                                                ${displayMode === 'posts' ? (theme === 'dark' ? 'border-white text-gray-100' : ' border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
+                                               ${displayMode === 'posts' ? (theme === 'dark' ? 'border-white text-gray-100' : ' border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
                                     onClick={() => setDisplayMode('posts')}
                                 >
                                     <Grid3X3Icon className='h-6 w-6' />
                                 </div>
                                 <div 
                                     className={`flex items-center cursor-pointer pb-2 w-14 justify-center border-b-2
-                                                ${displayMode === 'tagged' ? (theme === 'dark' ? ' border-white text-gray-100' : 'border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
+                                               ${displayMode === 'tagged' ? (theme === 'dark' ? ' border-white text-gray-100' : 'border-gray-800 text-gray-800') : (theme === 'dark' ? ' border-gray-500 text-gray-400' : 'border-gray-300 text-gray-600')}`}
                                     onClick={() => setDisplayMode('tagged')}
                                 >
                                     <SquareUser className='h-6 w-6' />
@@ -243,9 +242,12 @@ function InstagramContent({ theme }) {
                         }}
                     />
                 )}
+
+                
             </div>
         </div>
     );
 }
+
 
 export default InstagramContent;

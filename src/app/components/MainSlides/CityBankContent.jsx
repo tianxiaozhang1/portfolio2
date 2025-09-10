@@ -259,7 +259,7 @@ function CityBankContent({ theme }  ) {
                         headingOne="City Bank"
                         headingTwo="Better banking."
                         linkText="Visit Design"
-                        linkHref="https://citybank-three.vercel.app/wallet"
+                        linkHref="https://citywallet.vercel.app/"
                         featuresTitle="Features"
                         features={['Motion Path', 'scroll animation', 'framer Motion']}
                         dependenciesTitle="Dependencies"
