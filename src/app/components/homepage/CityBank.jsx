@@ -2,8 +2,8 @@ import React from 'react'
 import Image from "next/image";
 import Link from 'next/link'
 
-import {  roboto, orbitron, pt_sans_narrow, inter } from '../../../fonts';
-// aldrich,
+import {  pt_sans_narrow, inter } from '../../../fonts';
+// aldrich, roboto, orbitron, 
 import { Aldrich, Cinzel } from 'next/font/google';
 const aldrich = Aldrich({ subsets: ['latin'], weight: "400" })
 const cinzel = Cinzel({ subsets: ['latin'] })
@@ -370,168 +370,168 @@ function CityBank() {
             </div>
 
             {/* SMALL */}
-            <div className='w-92 h-78 flex justify-center items-center md:hidden'>
-                <div className=''>
-                    <div className='w-58 px-4 -mt-2'>
-                        <div className='h-58 w-50 bg-slate-300 rounded-[9vw] flex justify-center items-center'>
-                            <div className='h-54 w-46 bg-slate-900 rounded-[8vw] border-4 border-slate-700 overflow-hidden'>
-                                <div className='mt-1 mb-1.5 h-5 px-6 w-full text-sm font-semibold flex justify-between'>
-                                    <div className='text-blue-100'>City Wallet</div>
-                                    <div className='text-slate-300'>10:02</div>
-                                </div>
-                                <div className='h-44 overflow-hidden flex text-center justify-center items-center'>
-                                    <div className='px-1 w-full h-full text-kongQueLan text-base rounded-xl'>
-                                        <div>
-                                            <div className='flex space-x-1'>
-                                                <div className='flex w-10 p-1 h-10 bg-zinc-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={rollercoaster}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
+            <Link target="_blank" href="https://citywallet.vercel.app/" rel="noopener noreferrer">
+                <div className=' w-92 h-78 flex justify-center items-center md:hidden'>
+                    <div className=''>
+                        <div className='w-58 px-4 -mt-2'>
+                            <div className='h-58 w-50 bg-slate-300 rounded-[9vw] flex justify-center items-center'>
+                                <div className='h-54 w-46 bg-slate-900 rounded-[8vw] border-4 border-slate-700 overflow-hidden'>
+                                    <div className='mt-1 mb-1.5 h-5 px-6 w-full text-sm font-semibold flex justify-between'>
+                                        <div className='text-blue-100'>City Wallet</div>
+                                        <div className='text-slate-300'>10:02</div>
+                                    </div>
+                                    <div className='h-44 overflow-hidden flex text-center justify-center items-center'>
+                                        <div className='px-1 w-full h-full text-kongQueLan text-base rounded-xl'>
+                                            <div>
+                                                <div className='flex space-x-1'>
+                                                    <div className='flex w-10 p-1 h-10 bg-zinc-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={rollercoaster}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
 
-                                                <div className='flex w-10 p-1 h-10 bg-sky-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={plane}
-                                                        className="w-7 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-orange-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={id}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-sky-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={plane}
+                                                            className="w-7 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-orange-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={id}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
 
-                                                <div className='flex w-10 p-1 h-10 bg-indigo-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={food}
-                                                        className="w-7 h-6"
-                                                        alt=""
-                                                    />
+                                                    <div className='flex w-10 p-1 h-10 bg-indigo-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={food}
+                                                            className="w-7 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
                                                 </div>
+                                                <div className='flex space-x-1 mt-1'>
+                                                    <div className='flex w-10 p-1 h-10 bg-teal-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={taxi}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-amber-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={store}
+                                                            className="w-6 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-violet-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={gaming}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-white rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={train}
+                                                            className="w-7 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className='flex space-x-1 mt-1'>
+                                                    <div className='flex w-10 p-1 h-10 bg-lime-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={arena}
+                                                            className="w-7 h-7"
+                                                            alt=""
+                                                        />
+                                                    </div>
+
+                                                    <div className='flex w-10 p-1 h-10 bg-red-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={bus}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-blue-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={creditcard}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
+
+                                                    <div className='flex w-10 p-1 h-10 bg-green-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={ticket}
+                                                            className="w-7 h-5"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                </div>
+                                                <div className='flex space-x-1 mt-1'>
+                                                    <div className='flex w-10 p-1 h-10 bg-cyan-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={drink}
+                                                            className="w-7 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+
+                                                    <div className='flex w-10 p-1 h-10 bg-yellow-100 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={shopping}
+                                                            className="w-7 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                    <div className='flex w-10 p-1 h-10 bg-stone-50 rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={car}
+                                                            className="w-7 h-4"
+                                                            alt=""
+                                                        />
+                                                    </div>
+
+                                                    <div className='flex w-10 p-1 h-10 bg-white rounded-full justify-center items-center'>
+                                                        <Image
+                                                            src={park}
+                                                            className="w-6 h-6"
+                                                            alt=""
+                                                        />
+                                                    </div>
+                                                </div>
+                                                {/* <div className='mt-1'>all at once.</div> */}
+                                                {/* <div className='flex items-center justify-center h-7 bg-lime-500 w-full rounded-b-3xl text-slate-50 bg-gradient-to-br from-kongQueLan to-rouLan'>all at once.</div> */}
                                             </div>
-                                            <div className='flex space-x-1 mt-1'>
-                                                <div className='flex w-10 p-1 h-10 bg-teal-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={taxi}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-amber-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={store}
-                                                        className="w-6 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-violet-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={gaming}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-white rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={train}
-                                                        className="w-7 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className='flex space-x-1 mt-1'>
-                                                <div className='flex w-10 p-1 h-10 bg-lime-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={arena}
-                                                        className="w-7 h-7"
-                                                        alt=""
-                                                    />
-                                                </div>
-
-                                                <div className='flex w-10 p-1 h-10 bg-red-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={bus}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-blue-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={creditcard}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
-
-                                                <div className='flex w-10 p-1 h-10 bg-green-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={ticket}
-                                                        className="w-7 h-5"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className='flex space-x-1 mt-1'>
-                                                <div className='flex w-10 p-1 h-10 bg-cyan-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={drink}
-                                                        className="w-7 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-
-                                                <div className='flex w-10 p-1 h-10 bg-yellow-100 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={shopping}
-                                                        className="w-7 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                                <div className='flex w-10 p-1 h-10 bg-stone-50 rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={car}
-                                                        className="w-7 h-4"
-                                                        alt=""
-                                                    />
-                                                </div>
-
-                                                <div className='flex w-10 p-1 h-10 bg-white rounded-full justify-center items-center'>
-                                                    <Image
-                                                        src={park}
-                                                        className="w-6 h-6"
-                                                        alt=""
-                                                    />
-                                                </div>
-                                            </div>
-                                            {/* <div className='mt-1'>all at once.</div> */}
-                                            {/* <div className='flex items-center justify-center h-7 bg-lime-500 w-full rounded-b-3xl text-slate-50 bg-gradient-to-br from-kongQueLan to-rouLan'>all at once.</div> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div className='w-58 flex items-center justify-center text-center h-8 text-rouLan text-xl mt-2'>
-                        <div>
-                            <div className='font-bold mt-3 flex text-center justify-center items-center'>
-                                <div className={`${aldrich.className}`}>
-                                    <div className='font-bold mt-0.25'>City Bank</div>
+                        <div className='w-58 flex items-center justify-center text-center h-8 text-rouLan text-xl mt-2'>
+                            <div>
+                                <div className='font-bold mt-3 flex text-center justify-center items-center'>
+                                    <div className={`${aldrich.className}`}>
+                                        <div className='font-bold mt-0.25'>City Bank</div>
+                                    </div>
+                                    <div className='-mt-0.25'>&nbsp;App.</div>
                                 </div>
-                                <div className='-mt-0.25'>&nbsp;App.</div>
+                                <div className='font-bold -mt-2.5'><div className={``}>Everything&apos;s at hand.</div></div>
                             </div>
-                            <div className='font-bold -mt-2.5'><div className={``}>Everything&apos;s at hand.</div></div>
                         </div>
                     </div>
                 </div>
-            </div>
-
-
+            </Link>
 
             {/* MEDIUM AND UP */}
             <div className='w-92 h-78 hidden md:flex md:w-190 md:h-132 lg:flex lg:w-252 lg:h-120 xl:w-316 xl:h-152
@@ -804,7 +804,7 @@ function CityBank() {
                                 </div>
                             </div>
                             <div className='hidden lg:flex h-1/4 w-full  items-end justify-end pb-6 pr-6'>
-                                <Link target="_blank" href="https://citybank-three.vercel.app/" rel="noopener noreferrer">
+                                <Link target="_blank" href="https://citywallet.vercel.app/" rel="noopener noreferrer">
                                     <div className={`hover:text-slate-50 hover:bg-kongQueLan w-fit rounded-xl py-1.5 px-3 border-2 border-kongQueLan text-kongQueLan uppercase text-xs ${inter.className}`}>Visit Site</div>
                                 </Link>
                             </div>
